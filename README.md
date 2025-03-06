@@ -61,6 +61,7 @@ Ai-to-pptx是使用AI技术来自动生成PPTX，并且支持在线修改和导�
 # Ai-To-PPTX 商用版本
     1 暂时停止了商用版本的开发
     2 何时重新启动, 另行通知
+    3 本项目接受定制开发, 但是费用比较贵, 如果有需要, 请单独联系
 
 # Ai-To-PPTX 前端项目代码说明
     1 前端项目的代码主要引用于 https://github.com/veasion/aippt-react
