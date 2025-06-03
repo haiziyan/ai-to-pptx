@@ -38,7 +38,27 @@ const AiPPTXModel = () => {
           boxShadow: 3,
         }}
       >
-    
+        <Button
+          size={'small'}
+          variant="outlined"
+          onClick={() => handleButtonClick('https://aippt1.caxkernel.com/')}
+        >
+          就
+        </Button>
+        <Button
+          size={'small'}
+          variant="outlined"
+          onClick={() => handleButtonClick('https://aippt1.caxkernel.com/')}
+        >
+          是
+        </Button>
+        <Button
+          size={'small'}
+          variant="outlined"
+          onClick={() => handleButtonClick('https://aippt1.caxkernel.com/')}
+        >
+          干
+        </Button>
         <Button
           size={'small'}
           variant={pageMode == "AiToPPTX" ? "contained" : "outlined"}
