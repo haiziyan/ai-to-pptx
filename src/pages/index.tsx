@@ -44,7 +44,7 @@ const AiPPTXModel = () => {
           variant={pageMode == "AiToPPTX" ? "contained" : "outlined"}
           onClick={() => setPageMode('AiToPPTX')}
         >
-          Just Do It
+          AiToPPTX
         </Button>
         <Button
           size={'small'}
