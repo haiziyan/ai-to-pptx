@@ -32,8 +32,8 @@ const steps = [
     subtitle: '编辑大纲'
   },
   {
-    title: '选择模板',
-    subtitle: '选择模板'
+    title: '编辑风格',
+    subtitle: '编辑风格'
   },
   {
     title: '制作PTPX',
