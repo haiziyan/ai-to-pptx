@@ -66,13 +66,6 @@ const AiPPTXModel = () => {
         >
           AiToPPTX
         </Button>
-        <Button
-          size={'small'}
-          variant={pageMode == "Setting" ? "contained" : "outlined"}
-          onClick={() => setPageMode('Setting')}
-        >
-          参数设置
-        </Button>
       </Box>
     </Box>
   )
