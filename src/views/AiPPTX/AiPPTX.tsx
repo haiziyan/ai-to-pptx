@@ -49,7 +49,7 @@ const StepperLinearWithValidation = () => {
   return (
     <Card
         sx={{
-          height: 'calc(100vh - 120px)',
+          height: 'calc(100vh - 10px)',
           display: 'flex',
           flexDirection: 'column', // 垂直排列
         }}
