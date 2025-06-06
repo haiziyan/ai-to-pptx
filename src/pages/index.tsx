@@ -6,7 +6,7 @@ import Setting from 'src/views/AiPPTX/Setting'
 
 import { ReactNode } from 'react'
 
-import { Box, Button } from '@mui/material';
+import { Box } from '@mui/material';
 
 import BlankLayout from 'src/@core/layouts/BlankLayout'
 
@@ -14,7 +14,7 @@ const AiPPTXModel = () => {
 
 
 
-  const [pageMode, setPageMode] = useState("AiToPPTX");
+  const [pageMode] = useState("AiToPPTX");
 
   return (
     <Box sx={{ minHeight: '100vh', position: 'relative' }}>
