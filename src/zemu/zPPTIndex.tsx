@@ -13,31 +13,10 @@ export function clickButton1()
 {
     let pCore = new zPPTCore;
     let zContext = new zPPTContext;
-    let zSySet :ZSystemSetting = {      companyName: "",
-        companyWebsite: "",
-        companyLogo: "",
-        personalName: "",
-        personalAvatar: "",
-        personalBio: "",
-        personalEmail: "",
-        personalPhone: ""
-    };
-    let zStySet :ZStyleSetting = {
-         cardBackground: "",
-        cardBorderSpacing: "",
-        titleFont: "",
-        titleSize: "",
-        titleColor: "",
-        subtitleFont: "",
-        subtitleSize: "",
-        subtitleColor: "",
-        bodyFont: "",
-        bodySize: "",
-        bodyColor: "",
-        layoutStyle: "template"
-    };
-    zContext.setStyleSetting(zStySet);
-    zContext.setSystemSetting(zSySet);
+    //let zSySet :ZSystemSetting  = new ZSystemSetting();
+    //let zStySet :ZStyleSetting ;;
+    //zContext.setStyleSetting(zStySet);
+    //zContext.setSystemSetting(zSySet);
 
     pCore.generateCard("Zemu",zContext);
     pCore.savePPT("ZemuPPT");
