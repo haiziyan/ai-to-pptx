@@ -1,6 +1,7 @@
 // ** React Imports
 import { Fragment, useState } from 'react'
 
+import { clickButton1 } from 'src/zemu/zPPTIndex'
 // ** MUI Imports
 import Box from '@mui/material/Box'
 import Grid from '@mui/material/Grid'
@@ -235,7 +236,8 @@ const StepOneInputData = ({ setActiveStep, setInputData }: any) => {
           <Button
             variant="contained"
             color="primary"
-            onClick={handleGenerateOutline}
+            //onClick={handleGenerateOutline}
+            onClick={clickButton1}
             startIcon={<PlayCircleFilled />}
           >
             立即生成
