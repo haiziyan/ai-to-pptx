@@ -3,7 +3,7 @@ import { zPPTContext } from "./zPPTContext";
 import { ZStyleSetting } from "./zSetting";
 import { ZSystemSetting } from "./zSetting";
 import { ZLayoutStyle } from "./zSetting";
-import PptxGenJS from '../PptxGenJS/dist/pptxgen.bundle.js';
+//import PptxGenJS from '../PptxGenJS/dist/pptxgen.bundle.js';
 
 export class ZLayoutStyleClass {
 
@@ -25,7 +25,7 @@ export class ZLayoutStyleClass {
 
 export class zPPTCore {
 
-    public pptx = new PptxGenJS;
+    //public pptx = new PptxGenJS;
     public constructor() {
         // 私有构造函数，防止外部实例化
     }
@@ -36,7 +36,7 @@ export class zPPTCore {
         // 例如，如果是ZLayoutStyle.ZL1，可以使用一种布局方式；如果是ZLayoutStyle.ZL2，可以使用另一种布局方式
         // 这里只是一个示例，实际逻辑可以根据需求进行调整
         
-        this.pptx.title = "顶峰见";
+       /* this.pptx.title = "顶峰见";
         let slide = this.pptx.addSlide();
         
         switch (zlayoutStyle) 
@@ -51,7 +51,7 @@ export class zPPTCore {
             default:
                 slide.addText(text, {x: 1, y: 1, w: 8, fontSize: 18});
                 break;
-        }
+        }*/
     }
 
     //传入文字内容，和上下文内容，生成卡片
@@ -64,6 +64,6 @@ export class zPPTCore {
 
     //保存ppt，传入文件名
     public  savePPT(fileName: string) {
-        this.pptx.writeFile({ fileName});
+        //this.pptx.writeFile({ fileName});
     }
 }   
