@@ -13,9 +13,9 @@ export class ZLayoutStyleClass {
     // 这里只是一个示例，实际逻辑可以根据需求进行调整
     // 返回ZLayoutStyle枚举值
     // 例如：ZLayoutStyle.ZL1, ZLayoutStyle.ZL2, 等等
-    public getLayoutStyle(text:string): ZLayoutStyle {
+    public getLayoutStyle(ztext:string): ZLayoutStyle {
        const ret = ZLayoutStyle.ZL1;
-
+        console.log("getLayoutStyle called with text:", ztext);
         return ret;
     }
 }
@@ -31,7 +31,7 @@ export class zPPTCore {
     }
 
     //根据zlayoutStyle 生成卡片
-    public generateCardByLayoutStyle(text: string, context: zPPTContext, zlayoutStyle: ZLayoutStyle) {
+    public generateCardByLayoutStyle(ztext: string, context: zPPTContext, zlayoutStyle: ZLayoutStyle) {
         // 这里可以根据zlayoutStyle来决定如何生成卡片
         // 例如，如果是ZLayoutStyle.ZL1，可以使用一种布局方式；如果是ZLayoutStyle.ZL2，可以使用另一种布局方式
         // 这里只是一个示例，实际逻辑可以根据需求进行调整
@@ -56,15 +56,15 @@ export class zPPTCore {
         console.log("Context Style Setting:", context.getStyleSetting());
         console.log("Context System Setting:", context.getSystemSetting());
         console.log("Layout Style:", zlayoutStyle);
-        console.log("Generated Card Text:", text);
+        console.log("Generated Card Text:", ztext);
     }
 
     //传入文字内容，和上下文内容，生成卡片
-    public  generateCard(text: string, context: zPPTContext) {
+    public  generateCard(ztext: string, context: zPPTContext) {
         // 这里可以调用AI模型生成卡片内容
         const zlayout = new ZLayoutStyleClass();
-        const zlasty = zlayout.getLayoutStyle(text);
-        this.generateCardByLayoutStyle(text,context,zlasty);
+        const zlasty = zlayout.getLayoutStyle(ztext);
+        this.generateCardByLayoutStyle(ztext, context, zlasty);
     }
 
     //保存ppt，传入文件名

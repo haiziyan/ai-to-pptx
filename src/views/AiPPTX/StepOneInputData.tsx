@@ -49,16 +49,17 @@ const StepOneInputData = ({ setActiveStep, setInputData }: any) => {
   };
 
   // 处理立即生成按钮点击
-  /*const handleGenerateOutline = () => {
+  const handleGenerateOutline = () => {
     console.log("生成 PPTX 的参数：", {
       selectedOption,
       importOption,
       inputText,
       moreOptions,
     });
+    clickButton1();
     setInputData((prevState: any) => ({...prevState, selectedOption, importOption, inputText, moreOptions}))
     setActiveStep((prevActiveStep: number) => prevActiveStep + 1)
-  };*/
+  };
 
   return (
     <Box sx={{  }}>
@@ -236,8 +237,8 @@ const StepOneInputData = ({ setActiveStep, setInputData }: any) => {
           <Button
             variant="contained"
             color="primary"
-            //onClick={handleGenerateOutline}
-            onClick={clickButton1}
+            onClick={handleGenerateOutline}
+            //onClick={clickButton1}
             startIcon={<PlayCircleFilled />}
           >
             立即生成
