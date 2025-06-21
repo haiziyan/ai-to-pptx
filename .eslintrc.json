@@ -29,7 +29,7 @@
     "newline-before-return": "off",
     // add new line below import
     "import/newline-after-import": [
-      "error",
+      "off",
       {
         "count": 1
       }
