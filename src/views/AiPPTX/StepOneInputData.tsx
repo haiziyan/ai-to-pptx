@@ -49,7 +49,7 @@ const StepOneInputData = ({ setActiveStep, setInputData }: any) => {
   };
 
   // 处理立即生成按钮点击
-  const handleGenerateOutline = () => {
+  /*const handleGenerateOutline = () => {
     console.log("生成 PPTX 的参数：", {
       selectedOption,
       importOption,
@@ -58,7 +58,7 @@ const StepOneInputData = ({ setActiveStep, setInputData }: any) => {
     });
     setInputData((prevState: any) => ({...prevState, selectedOption, importOption, inputText, moreOptions}))
     setActiveStep((prevActiveStep: number) => prevActiveStep + 1)
-  };
+  };*/
 
   return (
     <Box sx={{  }}>
