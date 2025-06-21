@@ -52,6 +52,10 @@ export class zPPTCore {
                 slide.addText(text, {x: 1, y: 1, w: 8, fontSize: 18});
                 break;
         }*/
+       //输出context的样式设置
+        console.log("Context Style Setting:", context.getStyleSetting());
+        console.log("Context System Setting:", context.getSystemSetting());
+        console.log("Layout Style:", zlayoutStyle);
     }
 
     //传入文字内容，和上下文内容，生成卡片
