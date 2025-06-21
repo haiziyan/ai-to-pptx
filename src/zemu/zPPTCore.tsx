@@ -6,7 +6,9 @@ import { zPPTContext } from "./zPPTContext";
 import { ZLayoutStyle } from "./zSetting";
 
 
-import pptxgen from "../../PptxGenJS/dist/pptxgen.bundle.js";
+//import pptxgen from "../../PptxGenJS/dist/pptxgen.bundle.js";
+
+
 
 export class ZLayoutStyleClass {
 
@@ -29,9 +31,15 @@ export class ZLayoutStyleClass {
 
 export class zPPTCore {
 
-    public pptx = new pptxgen;
+    public pptx: any; // 使用any类型，实际使用时可以替换为具体的类型
     public constructor() {
         // 私有构造函数，防止外部实例化
+        // 动态导入CDN
+        const lib = await import("https://cdn.jsdelivr.net/gh/gitbrent/pptxgenjs/dist/pptxgen.bundle.js");
+        const PptxGenJS = (lib as any).default; // 类型断言
+        this.pptx = new PptxGenJS();
+        this.pptx.writeFile({ fileName: "demo.pptx" });
+        console.log("PPTXGenJS initialized");
     }
 
     //根据zlayoutStyle 生成卡片
