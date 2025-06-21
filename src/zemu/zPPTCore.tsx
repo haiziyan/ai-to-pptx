@@ -193,7 +193,7 @@ export class zPPTCore {
 		{ x: 0.5, y: 4.3, w: 8.5, h: 2.5, margin: 0.1, fill: { color: "232323" } }
 	);
 
-	let objOptions = {
+	const objOptions = {
 		x: 0,
 		y: 7,
 		w: "100%",
