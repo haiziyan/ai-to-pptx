@@ -57,7 +57,7 @@ export class zPPTCore {
         // 例如，如果是ZLayoutStyle.ZL1，可以使用一种布局方式；如果是ZLayoutStyle.ZL2，可以使用另一种布局方式
         // 这里只是一个示例，实际逻辑可以根据需求进行调整
         
-       this.pptx.title = "顶峰见";
+       //this.pptx.title = "顶峰见";
         const slide = this.pptx.addSlide();
         
         switch (zlayoutStyle) 
