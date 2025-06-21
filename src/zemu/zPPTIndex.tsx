@@ -36,7 +36,7 @@ export function clickButton1()
         bodyFont: "Arial",
         bodySize: "16px",
         bodyColor: "333333",
-        layoutStyle:ZLayoutStyleFormEnum.TEMPLATE
+        layoutStyle:ZLayoutStyleFormEnum.REGULAR
     };
     zContext.setStyleSetting(zStySet);
     zContext.setSystemSetting(zSySet);
