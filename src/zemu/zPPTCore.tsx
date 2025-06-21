@@ -52,12 +52,22 @@ export class zPPTCore {
     }
 
     //根据zlayoutStyle 生成卡片
-    public generateCardByLayoutStyle(ztext: string, context: zPPTContext, zlayoutStyle: ZLayoutStyle) {
+    public async generateCardByLayoutStyle(ztext: string, context: zPPTContext, zlayoutStyle: ZLayoutStyle) {
         // 这里可以根据zlayoutStyle来决定如何生成卡片
         // 例如，如果是ZLayoutStyle.ZL1，可以使用一种布局方式；如果是ZLayoutStyle.ZL2，可以使用另一种布局方式
         // 这里只是一个示例，实际逻辑可以根据需求进行调整
         
-       //this.pptx.title = "顶峰见";
+  const script = document.createElement("script");
+  script.src = "https://cdn.jsdelivr.net/gh/gitbrent/pptxgenjs/dist/pptxgen.bundle.js";
+  document.head.appendChild(script);
+
+  // 等待库加载完成
+  await new Promise(resolve => script.onload = resolve);
+
+  // 直接使用全局对象
+  this.pptx = new (window as any).PptxGenJS();
+
+       this.pptx.title = "顶峰见";
         const slide = this.pptx.addSlide();
         
         switch (zlayoutStyle) 
