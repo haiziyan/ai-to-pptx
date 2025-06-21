@@ -34,6 +34,9 @@ export class zPPTCore {
     public pptx: any; // 使用any类型，实际使用时可以替换为具体的类型
     public constructor() {
         // 私有构造函数，防止外部实例化
+        this.init();
+    }
+    public async init() {
         // 动态导入CDN
         const lib = await import("https://cdn.jsdelivr.net/gh/gitbrent/pptxgenjs/dist/pptxgen.bundle.js");
         const PptxGenJS = (lib as any).default; // 类型断言
