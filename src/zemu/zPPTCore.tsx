@@ -14,7 +14,7 @@ export class ZLayoutStyleClass {
     // 返回ZLayoutStyle枚举值
     // 例如：ZLayoutStyle.ZL1, ZLayoutStyle.ZL2, 等等
     public getLayoutStyle(text:string): ZLayoutStyle {
-       let ret = ZLayoutStyle.ZL1;
+       const ret = ZLayoutStyle.ZL1;
 
         return ret;
     }
@@ -56,18 +56,20 @@ export class zPPTCore {
         console.log("Context Style Setting:", context.getStyleSetting());
         console.log("Context System Setting:", context.getSystemSetting());
         console.log("Layout Style:", zlayoutStyle);
+        console.log("Generated Card Text:", text);
     }
 
     //传入文字内容，和上下文内容，生成卡片
     public  generateCard(text: string, context: zPPTContext) {
         // 这里可以调用AI模型生成卡片内容
-        let zlayout = new ZLayoutStyleClass();
-        let zlasty = zlayout.getLayoutStyle(text);
+        const zlayout = new ZLayoutStyleClass();
+        const zlasty = zlayout.getLayoutStyle(text);
         this.generateCardByLayoutStyle(text,context,zlasty);
     }
 
     //保存ppt，传入文件名
     public  savePPT(fileName: string) {
         //this.pptx.writeFile({ fileName});
+        console.log("PPT saved as:", fileName);
     }
 }   

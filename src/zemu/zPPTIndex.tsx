@@ -11,9 +11,9 @@ import { ZStyleSetting } from "./zSetting";
 //点击生成按钮
 export function clickButton1()
 {
-    let pCore = new zPPTCore();
-    let zContext = new zPPTContext();
-    let zSySet :ZSystemSetting = {
+    const pCore = new zPPTCore();
+    const zContext = new zPPTContext();
+    const zSySet :ZSystemSetting = {
         companyName: "Zemu Tech",
         companyWebsite: "https://www.`zemu.com",
         companyLogo: "https://www.zemu.com/logo.png",
@@ -23,7 +23,7 @@ export function clickButton1()
         personalEmail: "user@zemu.com",
         personalPhone: "123-456-7890"
     };
-    let zStySet :ZStyleSetting = {
+    const zStySet :ZStyleSetting = {
         cardBackground: "FFFFFF",
         cardBorderSpacing: "10px",
         titleFont: "Arial",
