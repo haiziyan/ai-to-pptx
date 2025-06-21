@@ -1,8 +1,8 @@
 //zemu首页
-/*import { zPPTContext } from "./zPPTContext";
+import { zPPTContext } from "./zPPTContext";
 import { zPPTCore } from "./zPPTCore";
 import { ZSystemSetting } from "./zSetting";
-import { ZStyleSetting } from "./zSetting";*/
+import { ZStyleSetting } from "./zSetting";
 
 
 
@@ -11,7 +11,7 @@ import { ZStyleSetting } from "./zSetting";*/
 //点击生成按钮
 export function clickButton1()
 {
-    /*const pCore = new zPPTCore();
+    const pCore = new zPPTCore();
     const zContext = new zPPTContext();
     const zSySet :ZSystemSetting = {
         companyName: "Zemu Tech",
@@ -41,7 +41,7 @@ export function clickButton1()
     zContext.setSystemSetting(zSySet);
 
     pCore.generateCard("Zemu",zContext);
-    pCore.savePPT("ZemuPPT");*/
+    pCore.savePPT("ZemuPPT");
 };
 
 
