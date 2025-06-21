@@ -4,6 +4,7 @@ import { zPPTContext } from "./zPPTContext";
 //import { ZStyleSetting } from "./zSetting";
 //import { ZSystemSetting } from "./zSetting";
 import { ZLayoutStyle } from "./zSetting";
+import { ZLayoutStyleFormEnum } from "./zSetting";
 
 
 //import pptxgen from "../../PptxGenJS/dist/pptxgen.bundle.js";
@@ -38,7 +39,7 @@ export class zPPTCore {
     }
     public async init() {
         // 使用全局 window 对象加载 CDN
-  const script = document.createElement("script");
+  /*const script = document.createElement("script");
   script.src = "https://cdn.jsdelivr.net/gh/gitbrent/pptxgenjs/dist/pptxgen.bundle.js";
   document.head.appendChild(script);
 
@@ -48,7 +49,7 @@ export class zPPTCore {
   // 直接使用全局对象
   this.pptx = new (window as any).PptxGenJS();
   //this.pptx.writeFile({ fileName: "demo.pptx" });
-        console.log("PPTXGenJS initialized");
+        console.log("PPTXGenJS initialized");*/
     }
 
     //根据zlayoutStyle 生成卡片
@@ -89,15 +90,39 @@ export class zPPTCore {
         console.log("Layout Style:", zlayoutStyle);
         console.log("Generated Card Text:", ztext);
 
-        this.pptx.writeFile({ fileName: "zemu.pptx" });
+        //this.pptx.writeFile({ fileName: "zemu.pptx" });
+        this.savePPT( "zemu.pptx" );
     }
 
     //传入文字内容，和上下文内容，生成卡片
     public  generateCard(ztext: string, context: zPPTContext) {
-        // 这里可以调用AI模型生成卡片内容
-        const zlayout = new ZLayoutStyleClass();
-        const zlasty = zlayout.getLayoutStyle(ztext);
-        this.generateCardByLayoutStyle(ztext, context, zlasty);
+
+        //获取卡片样式
+        const zstyle = context.getStyleSetting();
+        const zlayoutStyleForm = zstyle.layoutStyle;
+        console.log("Using layout style:", zlayoutStyleForm);
+        switch (zlayoutStyleForm) {
+            case ZLayoutStyleFormEnum.TEMPLATE:
+                //根据模板来生成ppt
+                console.log("Using TEMPLATE layout style");
+                break;
+            case ZLayoutStyleFormEnum.REGULAR:
+                //根据排布规则来生成ppt
+                        // 这里可以调用AI模型生成卡片内容
+                    const zlayout = new ZLayoutStyleClass();
+                    const zlasty = zlayout.getLayoutStyle(ztext);
+                    this.generateCardByLayoutStyle(ztext, context, zlasty);
+                console.log("Using REGULAR layout style");
+                break;
+            case ZLayoutStyleFormEnum.AI_PLUS_REGULAR:
+                //根据AI的规则建议来生成ppt
+                console.log("Using AI_PLUS_REGULAR layout style");
+                break;
+            default:
+                console.log("Using default layout style");
+                break;
+        }
+        
     }
 
     //保存ppt，传入文件名

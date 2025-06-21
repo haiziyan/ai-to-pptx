@@ -3,6 +3,7 @@ import { zPPTContext } from "./zPPTContext";
 import { zPPTCore } from "./zPPTCore";
 import { ZSystemSetting } from "./zSetting";
 import { ZStyleSetting } from "./zSetting";
+import { ZLayoutStyleFormEnum } from "./zSetting";
 
 
 
@@ -35,7 +36,7 @@ export function clickButton1()
         bodyFont: "Arial",
         bodySize: "16px",
         bodyColor: "333333",
-        layoutStyle: "template"
+        layoutStyle:ZLayoutStyleFormEnum.TEMPLATE
     };
     zContext.setStyleSetting(zStySet);
     zContext.setSystemSetting(zSySet);

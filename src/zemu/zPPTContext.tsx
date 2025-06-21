@@ -1,6 +1,7 @@
 //ppt设置的上下文类
 import { ZStyleSetting } from "./zSetting";
 import { ZSystemSetting } from "./zSetting";
+import { ZLayoutStyleFormEnum } from "./zSetting";
 
 export class zPPTContext {
     
@@ -34,7 +35,7 @@ export class zPPTContext {
         bodyFont: "",
         bodySize: "",
         bodyColor: "",
-        layoutStyle: "template"
+        layoutStyle: ZLayoutStyleFormEnum.TEMPLATE
     };
     
 
@@ -52,7 +53,7 @@ export class zPPTContext {
 
     // 获取风格设置
     public getStyleSetting(): ZStyleSetting {
-        
+
         return this.styleSetting;
     }
 

@@ -23,7 +23,14 @@ export interface ZStyleSetting {
   bodyFont: string; // 正文字体
   bodySize: string; // 正文大小
   bodyColor: string; // 正文颜色
-  layoutStyle: 'template' | 'regular' | 'ai_plus_regular'; // 排布样式
+  layoutStyle: ZLayoutStyleFormEnum; // 排布样式
+}
+
+//排布来源
+export enum ZLayoutStyleFormEnum {
+  TEMPLATE = 0, // 模板式
+  REGULAR = 1, // 规则式
+  AI_PLUS_REGULAR = 2 // AI+规则
 }
 
 //布局样式 枚举
