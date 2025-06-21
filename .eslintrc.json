@@ -15,7 +15,7 @@
     "@typescript-eslint/no-non-null-assertion": "off",
     // add new line above comment
     "lines-around-comment": [
-      "error",
+      "off",
       {
         "beforeLineComment": false,
         "beforeBlockComment": false,
@@ -35,7 +35,7 @@
       }
     ],
     "@typescript-eslint/ban-types": [
-      "error",
+      "off",
       {
         "extendDefaults": true,
         "types": {
