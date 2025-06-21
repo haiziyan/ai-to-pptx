@@ -1,7 +1,7 @@
 //生成PPT核心类
 import { zPPTContext } from "./zPPTContext";
-import { ZStyleSetting } from "./zSetting";
-import { ZSystemSetting } from "./zSetting";
+//import { ZStyleSetting } from "./zSetting";
+//import { ZSystemSetting } from "./zSetting";
 import { ZLayoutStyle } from "./zSetting";
 //import PptxGenJS from '../PptxGenJS/dist/pptxgen.bundle.js';
 

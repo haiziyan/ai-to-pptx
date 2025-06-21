@@ -11,11 +11,11 @@ import { ZStyleSetting } from "./zSetting";
 //点击生成按钮
 export function clickButton1()
 {
-    let pCore = new zPPTCore;
-    let zContext = new zPPTContext;
+    let pCore = new zPPTCore();
+    let zContext = new zPPTContext();
     let zSySet :ZSystemSetting = {
         companyName: "Zemu Tech",
-        companyWebsite: "https://www.zemu.com",
+        companyWebsite: "https://www.`zemu.com",
         companyLogo: "https://www.zemu.com/logo.png",
         personalName: "Zemu User",
         personalAvatar: "https://www.zemu.com/avatar.png",
