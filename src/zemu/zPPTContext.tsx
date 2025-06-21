@@ -35,7 +35,7 @@ export class zPPTContext {
         bodyFont: "",
         bodySize: "",
         bodyColor: "",
-        layoutStyle: ZLayoutStyleFormEnum.TEMPLATE
+        layoutStyle: ZLayoutStyleFormEnum.REGULAR
     };
     
 
@@ -86,7 +86,7 @@ export class zPPTContext {
             bodyFont: "",
             bodySize: "",
             bodyColor: "",
-            layoutStyle: ZLayoutStyleFormEnum.TEMPLATE
+            layoutStyle: ZLayoutStyleFormEnum.REGULAR
         };
     }         
 

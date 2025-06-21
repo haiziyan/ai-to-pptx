@@ -42,7 +42,7 @@ export function clickButton1()
     zContext.setSystemSetting(zSySet);
 
     pCore.generateCard("Zemu",zContext);
-    pCore.savePPT("ZemuPPT");
+    //pCore.savePPT("ZemuPPT");
 };
 
 
