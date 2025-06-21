@@ -37,11 +37,17 @@ export class zPPTCore {
         this.init();
     }
     public async init() {
-        // 动态导入CDN
-        const lib = await import("https://cdn.jsdelivr.net/gh/gitbrent/pptxgenjs/dist/pptxgen.bundle.js");
-        const PptxGenJS = (lib as any).default; // 类型断言
-        this.pptx = new PptxGenJS();
-        this.pptx.writeFile({ fileName: "demo.pptx" });
+        // 使用全局 window 对象加载 CDN
+  const script = document.createElement("script");
+  script.src = "https://cdn.jsdelivr.net/gh/gitbrent/pptxgenjs/dist/pptxgen.bundle.js";
+  document.head.appendChild(script);
+
+  // 等待库加载完成
+  await new Promise(resolve => script.onload = resolve);
+
+  // 直接使用全局对象
+  this.pptx = new (window as any).PptxGenJS();
+  this.pptx.writeFile({ fileName: "demo.pptx" });
         console.log("PPTXGenJS initialized");
     }
 
