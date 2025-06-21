@@ -5,7 +5,7 @@ import { zPPTContext } from "./zPPTContext";
 //import { ZSystemSetting } from "./zSetting";
 import { ZLayoutStyle } from "./zSetting";
 
-import PptxGenJS from 'https://cdn.jsdelivr.net/gh/gitbrent/pptxgenjs/dist/pptxgen.bundle.js';
+import pptxgen from 'pptxgenjs';
 
 //import PptxGenJS from '../PptxGenJS/dist/pptxgen.bundle.js';
 
@@ -30,7 +30,7 @@ export class ZLayoutStyleClass {
 
 export class zPPTCore {
 
-    public pptx = new PptxGenJS;
+    public pptx = new pptxgen;
     public constructor() {
         // 私有构造函数，防止外部实例化
     }
