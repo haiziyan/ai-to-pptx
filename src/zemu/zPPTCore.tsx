@@ -5,7 +5,9 @@ import { zPPTContext } from "./zPPTContext";
 //import { ZSystemSetting } from "./zSetting";
 import { ZLayoutStyle } from "./zSetting";
 
-import PptxGenJS from '../PptxGenJS/dist/pptxgen.bundle.js';
+import PptxGenJS from 'https://cdn.jsdelivr.net/gh/gitbrent/pptxgenjs/dist/pptxgen.bundle.js';
+
+//import PptxGenJS from '../PptxGenJS/dist/pptxgen.bundle.js';
 
 export class ZLayoutStyleClass {
 
