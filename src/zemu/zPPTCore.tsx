@@ -40,7 +40,7 @@ export class zPPTCore {
         // 这里只是一个示例，实际逻辑可以根据需求进行调整
         
        this.pptx.title = "顶峰见";
-        let slide = this.pptx.addSlide();
+        const slide = this.pptx.addSlide();
         
         switch (zlayoutStyle) 
         {
