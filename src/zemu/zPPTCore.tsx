@@ -134,7 +134,7 @@ export class zPPTCore {
     public genSlide01(slide:any)
 {
 	// Slide title
-	slide.addTable([[{ text: "Text Examples: Text alignment, percent x/y, etc.", options: BASE_TEXT_OPTS_L }, BASE_TEXT_OPTS_R]], BASE_TABLE_OPTS);
+	//slide.addTable([[{ text: "Text Examples: Text alignment, percent x/y, etc.", options: BASE_TEXT_OPTS_L }, BASE_TEXT_OPTS_R]], BASE_TABLE_OPTS);
 	// Slide colors: bkgd/fore
 	slide.bkgd = "030303";
 	slide.color = "9F9F9F";
