@@ -91,8 +91,8 @@ export class zPPTCore {
         console.log("Layout Style:", zlayoutStyle);
         console.log("Generated Card Text:", ztext);
 
-        //this.pptx.writeFile({ fileName: "zemu.pptx" });
-        this.savePPT( "zemu.pptx" );
+        this.pptx.writeFile({ fileName: "zemu.pptx" });
+        //this.savePPT( "zemu.pptx" );
     }
 
     //传入文字内容，和上下文内容，生成卡片
