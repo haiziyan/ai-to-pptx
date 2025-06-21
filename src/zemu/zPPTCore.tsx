@@ -74,7 +74,8 @@ export class zPPTCore {
         switch (zlayoutStyle) 
         {
             case ZLayoutStyle.ZL1://风格1
-                slide.addText(ztext, {x: 1, y: 1, w: 8, fontSize: 18});
+            this.genSlide01(slide);
+                //slide.addText(ztext, {x: 1, y: 1, w: 8, fontSize: 18});
                 break;
             case ZLayoutStyle.ZL2://风格2
                 slide.addText(ztext, {x: 1, y: 2, w: 8, fontSize: 20});
@@ -130,4 +131,83 @@ export class zPPTCore {
         this.pptx.writeFile({ fileName});
         console.log("PPT saved as:", fileName);
     }
+    public genSlide01(slide:any)
+{
+	// Slide title
+	slide.addTable([[{ text: "Text Examples: Text alignment, percent x/y, etc.", options: BASE_TEXT_OPTS_L }, BASE_TEXT_OPTS_R]], BASE_TABLE_OPTS);
+	// Slide colors: bkgd/fore
+	slide.bkgd = "030303";
+	slide.color = "9F9F9F";
+	// Slide notes
+	slide.addNotes("API Docs: https://gitbrent.github.io/PptxGenJS/docs/api-text.html");
+
+	// Actual Textbox shape (can have any Height, can wrap text, etc.)
+	slide.addText(
+		[
+			{ text: "Textbox align (center/middle)", options: { fontSize: 32, breakLine: true } },
+			{ text: "Character Spacing 16", options: { fontSize: 16, charSpacing: 16, breakLine: true } },
+			{ text: "Transparency 50%", options: { fontSize: 16, transparency: 50 } },
+		],
+		{ x: 0.5, y: 0.75, w: 8.5, h: 2.5, color: "FFFFFF", fill: { color: "0000FF" }, valign: "middle", align: "center", isTextBox: true }
+	);
+	slide.addText(
+		[
+			{ text: "(left/top)", options: { fontSize: 12, breakLine: true } },
+			{ text: "Textbox", options: { bold: true } },
+		],
+		{ x: 10, y: 0.75, w: 3.0, h: 1.0, color: "FFFFFF", fill: { color: "00B050" }, valign: "top", align: "left", margin: 15 }
+	);
+	slide.addText(
+		[
+			{ text: "Textbox", options: { breakLine: true } },
+			{ text: "(right/bottom)", options: { fontSize: 12 } },
+		],
+		{ x: 10, y: 2.25, w: 3.0, h: 1.0, color: "FFFFFF", fill: { color: "C00000" }, valign: "bottom", align: "right", margin: 0 }
+	);
+
+	slide.addText("^ (50%/50%)", { x: "50%", y: "50%", w: 2 });
+
+	slide.addText("Plain x/y coords", { x: 10, y: 4.35, w: 3 });
+
+	slide.addText("Escaped chars: ' \" & < >", { x: 10, y: 5.35, w: 3 });
+
+	slide.addText(
+		[
+			{ text: "Sub" },
+			{ text: "Subscript", options: { subscript: true } },
+			{ text: " // Super" },
+			{ text: "Superscript", options: { superscript: true } },
+		],
+		{ x: 10, y: 6.3, w: 3.3 }
+	);
+
+	// TEST: using {option}: Add text box with multiline options:
+	slide.addText(
+		[
+			{
+				text: "word-level\nformatting",
+				options: { fontSize: 32, fontFace: "Courier New", color: "99ABCC", align: "right", breakLine: true },
+			},
+			{ text: "...in the same textbox", options: { fontSize: 48, fontFace: "Arial", color: "FFFF00", align: "center" } },
+		],
+		{ x: 0.5, y: 4.3, w: 8.5, h: 2.5, margin: 0.1, fill: { color: "232323" } }
+	);
+
+	let objOptions = {
+		x: 0,
+		y: 7,
+		w: "100%",
+		h: 0.5,
+		align: "center",
+		fontFace: "Arial",
+		fontSize: 24,
+		color: "00EC23",
+		bold: true,
+		italic: true,
+		underline: true,
+		margin: 0,
+		isTextBox: true,
+	};
+	slide.addText("Text: Arial, 24, green, bold, italic, underline, margin:0", objOptions);
+}
 }   
