@@ -238,6 +238,7 @@ const StepOneInputData = ({ setActiveStep, setInputData }: any) => {
             variant="contained"
             color="primary"
             onClick={handleGenerateOutline}
+            
             //onClick={clickButton1}
             startIcon={<PlayCircleFilled />}
           >
