@@ -40,16 +40,19 @@ export class zPPTContext {
 
     // 获取系统设置
     public getSystemSetting(): ZSystemSetting {
+
         return this.systemSetting;
     }
 
     // 设置系统设置
     public setSystemSetting(setting: ZSystemSetting): void {
+
         this.systemSetting = setting;
     }
 
     // 获取风格设置
     public getStyleSetting(): ZStyleSetting {
+        
         return this.styleSetting;
     }
 

@@ -18,6 +18,7 @@ export class ZLayoutStyleClass {
     public getLayoutStyle(ztext:string): ZLayoutStyle {
        const ret = ZLayoutStyle.ZL1;
         console.log("getLayoutStyle called with text:", ztext);
+        
         return ret;
     }
 }
