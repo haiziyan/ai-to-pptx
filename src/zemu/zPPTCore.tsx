@@ -5,7 +5,7 @@ import { zPPTContext } from "./zPPTContext";
 //import { ZSystemSetting } from "./zSetting";
 import { ZLayoutStyle } from "./zSetting";
 
-//import PptxGenJS from '../PptxGenJS/dist/pptxgen.bundle.js';
+import PptxGenJS from '../PptxGenJS/dist/pptxgen.bundle.js';
 
 export class ZLayoutStyleClass {
 
@@ -18,7 +18,7 @@ export class ZLayoutStyleClass {
     public getLayoutStyle(ztext:string): ZLayoutStyle {
        const ret = ZLayoutStyle.ZL1;
         console.log("getLayoutStyle called with text:", ztext);
-        
+
         return ret;
     }
 }
@@ -28,7 +28,7 @@ export class ZLayoutStyleClass {
 
 export class zPPTCore {
 
-    //public pptx = new PptxGenJS;
+    public pptx = new PptxGenJS;
     public constructor() {
         // 私有构造函数，防止外部实例化
     }
@@ -39,22 +39,22 @@ export class zPPTCore {
         // 例如，如果是ZLayoutStyle.ZL1，可以使用一种布局方式；如果是ZLayoutStyle.ZL2，可以使用另一种布局方式
         // 这里只是一个示例，实际逻辑可以根据需求进行调整
         
-       /* this.pptx.title = "顶峰见";
+       this.pptx.title = "顶峰见";
         let slide = this.pptx.addSlide();
         
         switch (zlayoutStyle) 
         {
             case ZLayoutStyle.ZL1://风格1
-                slide.addText(text, {x: 1, y: 1, w: 8, fontSize: 18});
+                slide.addText(ztext, {x: 1, y: 1, w: 8, fontSize: 18});
                 break;
             case ZLayoutStyle.ZL2://风格2
-                slide.addText(text, {x: 1, y: 2, w: 8, fontSize: 20});
+                slide.addText(ztext, {x: 1, y: 2, w: 8, fontSize: 20});
                 break;
             // 可以添加更多的布局样式处理
             default:
-                slide.addText(text, {x: 1, y: 1, w: 8, fontSize: 18});
+                slide.addText(ztext, {x: 1, y: 1, w: 8, fontSize: 18});
                 break;
-        }*/
+        }
        //输出context的样式设置
         console.log("Context Style Setting:", context.getStyleSetting());
         console.log("Context System Setting:", context.getSystemSetting());
@@ -72,7 +72,7 @@ export class zPPTCore {
 
     //保存ppt，传入文件名
     public  savePPT(fileName: string) {
-        //this.pptx.writeFile({ fileName});
+        this.pptx.writeFile({ fileName});
         console.log("PPT saved as:", fileName);
     }
 }   
