@@ -47,7 +47,7 @@ export class zPPTCore {
 
   // 直接使用全局对象
   this.pptx = new (window as any).PptxGenJS();
-  this.pptx.writeFile({ fileName: "demo.pptx" });
+  //this.pptx.writeFile({ fileName: "demo.pptx" });
         console.log("PPTXGenJS initialized");
     }
 
