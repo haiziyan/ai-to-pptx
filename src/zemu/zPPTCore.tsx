@@ -88,6 +88,8 @@ export class zPPTCore {
         console.log("Context System Setting:", context.getSystemSetting());
         console.log("Layout Style:", zlayoutStyle);
         console.log("Generated Card Text:", ztext);
+
+        this.pptx.writeFile({ fileName: "zemu.pptx" });
     }
 
     //传入文字内容，和上下文内容，生成卡片
