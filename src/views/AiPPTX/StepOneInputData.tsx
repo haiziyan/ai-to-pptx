@@ -1,7 +1,7 @@
 // ** React Imports
 import { Fragment, useState } from 'react'
 
-//import { clickButton1 } from 'src/zemu/zPPTIndex'
+import { clickButton1 } from 'src/zemu/zPPTIndex'
 // ** MUI Imports
 import Box from '@mui/material/Box'
 import Grid from '@mui/material/Grid'
@@ -56,7 +56,7 @@ const StepOneInputData = ({ setActiveStep, setInputData }: any) => {
       inputText,
       moreOptions,
     });
-    //clickButton1();
+    clickButton1();
     setInputData((prevState: any) => ({...prevState, selectedOption, importOption, inputText, moreOptions}))
     setActiveStep((prevActiveStep: number) => prevActiveStep + 1)
   };
@@ -238,7 +238,7 @@ const StepOneInputData = ({ setActiveStep, setInputData }: any) => {
             variant="contained"
             color="primary"
             onClick={handleGenerateOutline}
-            
+
             //onClick={clickButton1}
             startIcon={<PlayCircleFilled />}
           >
