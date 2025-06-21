@@ -86,7 +86,7 @@ export class zPPTContext {
             bodyFont: "",
             bodySize: "",
             bodyColor: "",
-            layoutStyle: "template"
+            layoutStyle: ZLayoutStyleFormEnum.TEMPLATE
         };
     }         
 
