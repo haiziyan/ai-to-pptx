@@ -74,7 +74,7 @@ export class zPPTCore {
         switch (zlayoutStyle) 
         {
             case ZLayoutStyle.ZL1://风格1
-            this.genSlide01(slide);
+            this.layoutCardStyle1(slide);
                 //slide.addText(ztext, {x: 1, y: 1, w: 8, fontSize: 18});
                 break;
             case ZLayoutStyle.ZL2://风格2
@@ -210,4 +210,21 @@ export class zPPTCore {
 	};
 	slide.addText("Text: Arial, 24, green, bold, italic, underline, margin:0", objOptions);
 }
+
+
+//卡片排版布局
+public layoutCardStyle1(slide:any)
+{
+	// Slide title
+	//slide.addTable([[{ text: "Text Examples: Text alignment, percent x/y, etc.", options: BASE_TEXT_OPTS_L }, BASE_TEXT_OPTS_R]], BASE_TABLE_OPTS);
+	// Slide colors: bkgd/fore
+	slide.bkgd = "030303";
+	slide.color = "9F9F9F";
+	// Slide notes
+	
+
+	slide.addText("^ (50%/50%)", { x: "50%", y: "50%", w: 2 });
+
+}
+
 }   
