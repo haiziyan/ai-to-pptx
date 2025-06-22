@@ -219,7 +219,7 @@ export class zPPTCore {
     public layoutCardStyle1(slide: any) 
     {
         const ypos = (5.625-1.4)*0.5; // 计算y坐标，5.625是幻灯片的高度，1.4是文本框的高度
-        slide.addText("ZEMU", { x: 0, y: ypos, w: 2, h: 1.4, align: "center", fontSize: 50, fontFace: "Arial" });
+        slide.addText("ZEMU", { x: 0, y: ypos, w: 10, h: 1.4, align: "center", fontSize: 50, fontFace: "Arial" });
     }
 
 }   
