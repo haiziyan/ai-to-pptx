@@ -215,16 +215,7 @@ export class zPPTCore {
 //卡片排版布局
 public layoutCardStyle1(slide:any)
 {
-	// Slide title
-	//slide.addTable([[{ text: "Text Examples: Text alignment, percent x/y, etc.", options: BASE_TEXT_OPTS_L }, BASE_TEXT_OPTS_R]], BASE_TABLE_OPTS);
-	// Slide colors: bkgd/fore
-	slide.bkgd = "030303";
-	slide.color = "9F9F9F";
-	// Slide notes
-	
-
-	slide.addText("^ (50%/50%)", { x: "50%", y: "50%", w: 2 });
-
+	slide.addText("ZEMU", { x: "50%", y: "50%", w: "30%", h: 1.4,align: "center" });
 }
 
 }   
