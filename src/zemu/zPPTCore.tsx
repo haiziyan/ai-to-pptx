@@ -215,7 +215,7 @@ export class zPPTCore {
 //卡片排版布局
 public layoutCardStyle1(slide:any)
 {
-	slide.addText("ZEMU", { x: "50%", y: "50%", w: "30%", h: 1.4,align: "center" });
+	slide.addText("ZEMU", { x: "50%", y: "50%", w: 10, h: 1.4,align: "center" , fontSize: 50, fontFace: "Arial"});
 }
 
 }   
