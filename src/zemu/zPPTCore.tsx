@@ -78,7 +78,7 @@ export class zPPTCore {
 
         switch (zlayoutStyle) {
             case ZLayoutStyle.ZL1://风格1
-                this.layoutCardStyle1(slide);
+                this.layoutCardStyle2(slide);
                 //slide.addText(ztext, {x: 1, y: 1, w: 8, fontSize: 18});
                 break;
             case ZLayoutStyle.ZL2://风格2
@@ -218,6 +218,15 @@ export class zPPTCore {
     //卡片排版布局
     public layoutCardStyle1(slide: any) 
     {
+        const ypos = (5.625-1.4)*0.5; // 计算y坐标，5.625是幻灯片的高度，1.4是文本框的高度
+        slide.addText("ZEMU", { x: 0, y: ypos, w: 10, h: 1.4, align: "center", fontSize: 50, fontFace: "Arial" });
+    }
+
+      public layoutCardStyle2(slide: any) 
+    {
+        //添加图片
+        slide.addImage({ path: "https://pic.baike.soso.com/ugc/baikepic2/0/20210608234717-1081107189_png_674_446_600924.jpg/800", x: 0, y: 0, w: 10, h: 5.625 });
+
         const ypos = (5.625-1.4)*0.5; // 计算y坐标，5.625是幻灯片的高度，1.4是文本框的高度
         slide.addText("ZEMU", { x: 0, y: ypos, w: 10, h: 1.4, align: "center", fontSize: 50, fontFace: "Arial" });
     }
