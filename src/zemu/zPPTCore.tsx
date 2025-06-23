@@ -74,7 +74,7 @@ export class zPPTCore {
         this.pptx.company = 'Computer Science Chair';
         this.pptx.revision = '15';
 
-        const conStrVec:string[] = ["ZEMU","ZEMU","ZEMU","ZEMU"];
+        const conStrVec:string[] = ["ZEMU","ZEMU","ZEMU"];
 
         const slide = this.pptx.addSlide();
         const slide2 = this.pptx.addSlide();
@@ -241,7 +241,7 @@ export class zPPTCore {
     {
         //文字数组
         //slide.background = context.styleSetting.cardBackground; 
-        slide.background = { color: "07474b" };
+        slide.background = { color: context.styleSetting.cardBackground };
 
         slide.color = context.styleSetting.bodyColor;
 
