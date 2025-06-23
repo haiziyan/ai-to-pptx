@@ -244,13 +244,13 @@ export class zPPTCore {
         slide.color = context.styleSetting.bodyColor;
 
         const cardW = context.styleSetting.cardW;
-        //const cardH = context.styleSetting.cardH;
+        const cardH = context.styleSetting.cardH;
         const cradBSpace = context.styleSetting.cardBorderSpacing;
         
         const countLent=conStr.length;
         const textBoxLength = (cardW - cradBSpace*2)/countLent;
 
-        const ypos = (cardW-1.4)*0.5; // 计算y坐标，5.625是幻灯片的高度，1.4是文本框的高度
+        const ypos = (cardH-1.4)*0.5; // 计算y坐标，5.625是幻灯片的高度，1.4是文本框的高度
         for (let i = 0;i<countLent;i++) 
         {
             const tStr = conStr[i];
