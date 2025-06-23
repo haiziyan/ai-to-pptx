@@ -74,11 +74,13 @@ export class zPPTCore {
         this.pptx.company = 'Computer Science Chair';
         this.pptx.revision = '15';
 
+        const conStrVec:string[] = ["1","2","3"];
+
         const slide = this.pptx.addSlide();
 
         switch (zlayoutStyle) {
             case ZLayoutStyle.ZL1://风格1
-                this.layoutCardStyle2(slide);
+                this.layoutCardStyle3(slide,conStrVec,context);
                 //slide.addText(ztext, {x: 1, y: 1, w: 8, fontSize: 18});
                 break;
             case ZLayoutStyle.ZL2://风格2
@@ -231,4 +233,16 @@ export class zPPTCore {
         slide.addText("ZEMU", { x: 0, y: ypos, w: 10, h: 1.4, align: "center", fontSize: 50, fontFace: "Arial" });
     }
 
+    public layoutCardStyle3(slide: any,conStr:string[],context:zPPTContext) 
+    {
+        //文字数组
+        slide.background = { color: "F1F1F1" }; 
+        slide.color = "696969";
+
+        //添加图片
+        //slide.addImage({ path: "https://pic.baike.soso.com/ugc/baikepic2/0/20210608234717-1081107189_png_674_446_600924.jpg/800", x: 0, y: 0, w: 10, h: 5.625 });
+
+        const ypos = (5.625-1.4)*0.5; // 计算y坐标，5.625是幻灯片的高度，1.4是文本框的高度
+        slide.addText("ZEMU", { x: 0, y: ypos, w: 10, h: 1.4, align: "center", fontSize: 50, fontFace: "Arial" });
+    }
 }   
