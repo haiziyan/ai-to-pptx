@@ -74,7 +74,7 @@ export class zPPTCore {
         this.pptx.company = 'Computer Science Chair';
         this.pptx.revision = '15';
 
-        const conStrVec:string[] = ["ZEMU","ZEMU","ZEMU"];
+        const conStrVec:string[] = ["ZEMU","ZEMU","ZEMU","ZEMU"];
 
         const slide = this.pptx.addSlide();
         const slide2 = this.pptx.addSlide();

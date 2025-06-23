@@ -57,8 +57,8 @@ const StepOneInputData = ({ setActiveStep, setInputData }: any) => {
       moreOptions,
     });
     clickButton1();
-    setInputData((prevState: any) => ({...prevState, selectedOption, importOption, inputText, moreOptions}))
-    setActiveStep((prevActiveStep: number) => prevActiveStep + 1)
+    //setInputData((prevState: any) => ({...prevState, selectedOption, importOption, inputText, moreOptions}))
+    //setActiveStep((prevActiveStep: number) => prevActiveStep + 1)
   };
 
   return (
