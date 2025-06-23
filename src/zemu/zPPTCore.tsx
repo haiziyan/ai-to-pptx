@@ -77,10 +77,14 @@ export class zPPTCore {
         const conStrVec:string[] = ["ZEMU","ZEMU","ZEMU"];
 
         const slide = this.pptx.addSlide();
+        const slide2 = this.pptx.addSlide();
+        const slide3 = this.pptx.addSlide();
 
         switch (zlayoutStyle) {
             case ZLayoutStyle.ZL1://风格1
                 this.layoutCardStyle3(slide,conStrVec,context);
+                this.layoutCardStyle3(slide2,conStrVec,context);
+                this.layoutCardStyle3(slide3,conStrVec,context);
                 //slide.addText(ztext, {x: 1, y: 1, w: 8, fontSize: 18});
                 break;
             case ZLayoutStyle.ZL2://风格2
@@ -246,7 +250,7 @@ export class zPPTCore {
         const countLent=conStr.length;
         const textBoxLength = (cardW - cradBSpace*2)/countLent;
 
-        const ypos = (5.625-1.4)*0.5; // 计算y坐标，5.625是幻灯片的高度，1.4是文本框的高度
+        const ypos = (cardW-1.4)*0.5; // 计算y坐标，5.625是幻灯片的高度，1.4是文本框的高度
         for (let i = 0;i<countLent;i++) 
         {
             const tStr = conStr[i];

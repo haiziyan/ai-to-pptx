@@ -37,7 +37,7 @@ export function clickButton1()
         subtitleColor: "666666",
         bodyFont: "Arial",
         bodySize: "16px",
-        bodyColor: "333333",
+        bodyColor: "FFFAFA",
         layoutStyle:ZLayoutStyleFormEnum.REGULAR
     };
     zContext.setStyleSetting(zStySet);

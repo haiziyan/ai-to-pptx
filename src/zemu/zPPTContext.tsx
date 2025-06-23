@@ -24,7 +24,7 @@ export class zPPTContext {
 
     // 风格设置
     public styleSetting: ZStyleSetting = {
-        cardBackground: "F1F1F1",
+        cardBackground: "123456",
         cardBorderSpacing: 1,
         cardH:10,
         cardW:5.625,
