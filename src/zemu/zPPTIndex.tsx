@@ -25,7 +25,7 @@ export function clickButton1()
         personalPhone: "123-456-7890"
     };
     const zStySet :ZStyleSetting = {
-        cardBackground: "2F4F4F",
+        cardBackground: "07474b",
         cardBorderSpacing: 1,
         cardW :10,
         cardH: 5.625,
