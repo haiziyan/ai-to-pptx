@@ -24,8 +24,10 @@ export class zPPTContext {
 
     // 风格设置
     public styleSetting: ZStyleSetting = {
-        cardBackground: "",
-        cardBorderSpacing: "",
+        cardBackground: "F1F1F1",
+        cardBorderSpacing: 1,
+        cardH:10,
+        cardW:5.625,
         titleFont: "",
         titleSize: "",
         titleColor: "",
@@ -61,33 +63,6 @@ export class zPPTContext {
     public setStyleSetting(setting: ZStyleSetting): void {
         this.styleSetting = setting;
     }
-
-    // 重置上下文
-    public resetContext(): void {
-        this.systemSetting = {
-            companyName: "",
-            companyWebsite: "",
-            companyLogo: "",
-            personalName: "",
-            personalAvatar: "",
-            personalBio: "",
-            personalEmail: "",
-            personalPhone: ""
-        };
-        this.styleSetting = {
-            cardBackground: "",
-            cardBorderSpacing: "",
-            titleFont: "",
-            titleSize: "",
-            titleColor: "",
-            subtitleFont: "",
-            subtitleSize: "",
-            subtitleColor: "",
-            bodyFont: "",
-            bodySize: "",
-            bodyColor: "",
-            layoutStyle: ZLayoutStyleFormEnum.REGULAR
-        };
-    }         
+     
 
 }

@@ -13,7 +13,9 @@ export interface ZSystemSetting {
 //风格设置 卡片背景，边框距，大标题(字体，大小，颜色)，二级标题(字体，大小，颜色)，正文(字体，大小，颜色)，排布样式(模板式、规则式，AI+规则)
 export interface ZStyleSetting {
   cardBackground: string; // 卡片背景
-  cardBorderSpacing: string; // 边框距
+  cardBorderSpacing: number; // 边框距
+  cardW:number;//卡片宽 10
+  cardH:number;//卡片高 5.625
   titleFont: string; // 大标题字体
   titleSize: string; // 大标题大小
   titleColor: string; // 大标题颜色

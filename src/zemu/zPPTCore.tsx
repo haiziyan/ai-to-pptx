@@ -74,7 +74,7 @@ export class zPPTCore {
         this.pptx.company = 'Computer Science Chair';
         this.pptx.revision = '15';
 
-        const conStrVec:string[] = ["1","2","3"];
+        const conStrVec:string[] = ["ZEMU","ZEMU","ZEMU"];
 
         const slide = this.pptx.addSlide();
 
@@ -236,13 +236,27 @@ export class zPPTCore {
     public layoutCardStyle3(slide: any,conStr:string[],context:zPPTContext) 
     {
         //文字数组
-        slide.background = { color: "F1F1F1" }; 
-        slide.color = "696969";
+        slide.background = context.styleSetting.cardBackground; 
+        slide.color = context.styleSetting.bodyColor;
+
+        const cardW = context.styleSetting.cardW;
+        //const cardH = context.styleSetting.cardH;
+        const cradBSpace = context.styleSetting.cardBorderSpacing;
+        
+        const countLent=conStr.length;
+        const textBoxLength = (cardW - cradBSpace*2)/countLent;
+
+        const ypos = (5.625-1.4)*0.5; // 计算y坐标，5.625是幻灯片的高度，1.4是文本框的高度
+        for (let i = 0;i<countLent;i++) 
+        {
+            const tStr = conStr[i];
+            slide.addText(tStr, { x: cradBSpace+textBoxLength*i, y: ypos, w: textBoxLength, h: 1.4, align: "left", fontSize: 50, fontFace: "Arial" });
+        }
 
         //添加图片
         //slide.addImage({ path: "https://pic.baike.soso.com/ugc/baikepic2/0/20210608234717-1081107189_png_674_446_600924.jpg/800", x: 0, y: 0, w: 10, h: 5.625 });
 
-        const ypos = (5.625-1.4)*0.5; // 计算y坐标，5.625是幻灯片的高度，1.4是文本框的高度
-        slide.addText("ZEMU", { x: 0, y: ypos, w: 10, h: 1.4, align: "center", fontSize: 50, fontFace: "Arial" });
+        
+        
     }
 }   
