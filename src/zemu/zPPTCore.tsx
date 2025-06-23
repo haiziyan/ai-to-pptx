@@ -240,7 +240,9 @@ export class zPPTCore {
     public layoutCardStyle3(slide: any,conStr:string[],context:zPPTContext) 
     {
         //文字数组
-        slide.background = context.styleSetting.cardBackground; 
+        //slide.background = context.styleSetting.cardBackground; 
+        slide.background = { color: "07474b" };
+
         slide.color = context.styleSetting.bodyColor;
 
         const cardW = context.styleSetting.cardW;
@@ -248,6 +250,8 @@ export class zPPTCore {
         const cradBSpace = context.styleSetting.cardBorderSpacing;
         
         const countLent=conStr.length;
+
+        //计算文本框的长度
         const textBoxLength = (cardW - cradBSpace*2)/countLent;
 
         const ypos = (cardH-1.4)*0.5; // 计算y坐标，5.625是幻灯片的高度，1.4是文本框的高度
