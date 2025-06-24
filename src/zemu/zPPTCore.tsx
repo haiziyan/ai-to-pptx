@@ -196,7 +196,7 @@ export class zPPTCore {
                 // 这里可以调用AI模型生成卡片内容
                 const zlayout = new ZLayoutStyleClass();
                 const zlasty = zlayout.getLayoutStyle(ztext);
-                this.generateCardByLayoutStyle(ztext, context, zlasty);
+                this.generateCardByLayoutStyle(ztext, context);
                 console.log("Using REGULAR layout style");
                 break;
             default:
@@ -218,10 +218,7 @@ export class zPPTCore {
         else if(context.styleSetting.layoutStyle === ZLayoutStyleFormEnum.REGULAR)  
         {
             console.log("根据规则生成");
-   //主题
-   const zlayout = new ZLayoutStyleClass();
-   const zlasty = ZLayoutStyle.ZL1;
-   this.generateCardByLayoutStyle(outlineContent, context, zlasty);
+   this.generateCardByLayoutStyle(outlineContent, context);
 
 
         }
