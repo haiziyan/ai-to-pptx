@@ -9,7 +9,69 @@ import { ZLayoutStyleFormEnum } from "./zSetting";
 
 //import pptxgen from "../../PptxGenJS/dist/pptxgen.bundle.js";
 
-
+const parseTextFromAiResult = (ParseText: string) => {
+    const ParseTextArray = ParseText.split("\n")
+    console.log("ParseTextArray", ParseTextArray)
+    const ParseResult: any = {}
+    let TitleOne = ''
+    let TitleTwo = ''
+    let TitleThree = ''
+    let Subject = ''
+    ParseTextArray.map((Item: string)=>{
+        if(Item.trim() !="" && Item.trim() !="```markdown" && Item.trim() !="```")  {
+            if(Item.trim().startsWith('# '))  {
+                Subject = Item.trim().substring(2)
+            }
+            else if(Item.trim().startsWith('## '))  {
+                TitleOne = Item.trim().substring(6)
+                ParseResult[TitleOne] = {}
+            }
+            else if(Item.trim().startsWith('### '))  {
+                TitleTwo = Item.trim().substring(7)
+                ParseResult[TitleOne][TitleTwo] = []
+            }
+            else if(Item.trim().startsWith('#### '))  {
+                //标题
+                TitleThree = Item.trim().substring(11)
+                if(TitleOne!="" && TitleTwo!="" && TitleThree!="" && ParseResult[TitleOne][TitleTwo])   {
+                    ParseResult[TitleOne][TitleTwo].push(TitleThree)
+                }
+            }
+            else    {
+                //标题
+                TitleThree = Item.trim().substring(6)
+                if(TitleOne!="" && TitleTwo!="" && TitleThree!="" && ParseResult[TitleOne][TitleTwo])   {
+                    ParseResult[TitleOne][TitleTwo].push(TitleThree)
+                }
+            }
+        }
+    })
+  
+    const ResultTopChildren: any = []
+    const KeysOne = Object.keys(ParseResult)
+    KeysOne.map((ItemOne: string)=>{
+        const MapOne = ParseResult[ItemOne]
+        const KeysTwo = Object.keys(MapOne)
+        const ResultOneChildren: any = []
+        KeysTwo.map((ItemTwo: string)=>{
+            const MapTwo = MapOne[ItemTwo]
+            const ResultTwoChildren: any = []
+            MapTwo.map((ItemThree: string)=>{
+                ResultTwoChildren.push({name: ItemThree, level: 4, children: []})
+            })
+            const ResultTwo = {name: ItemTwo, level: 3, children: ResultTwoChildren}
+            console.log("MapTwo", ItemTwo, MapTwo)
+            ResultOneChildren.push(ResultTwo)
+        })
+        const ResultOne = {name: ItemOne, level: 2, children: ResultOneChildren}
+        ResultTopChildren.push(ResultOne)
+    })
+    const ResultMap = {name: Subject, level: 1, children: ResultTopChildren}
+    console.log("ResultMap", ResultMap)
+  
+    return ResultMap
+  }
+  
 
 export class ZLayoutStyleClass {
 
@@ -53,7 +115,7 @@ export class zPPTCore {
     }
 
     //根据zlayoutStyle 生成卡片
-    public async generateCardByLayoutStyle(ztext: string, context: zPPTContext, zlayoutStyle: ZLayoutStyle) {
+    public async generateCardByLayoutStyle(outlineContent: any, context: zPPTContext) {
         // 这里可以根据zlayoutStyle来决定如何生成卡片
         // 例如，如果是ZLayoutStyle.ZL1，可以使用一种布局方式；如果是ZLayoutStyle.ZL2，可以使用另一种布局方式
         // 这里只是一个示例，实际逻辑可以根据需求进行调整
@@ -74,35 +136,47 @@ export class zPPTCore {
         this.pptx.company = 'Computer Science Chair';
         this.pptx.revision = '15';
 
-        const conStrVec:string[] = ["ZEMU","ZEMU","ZEMU"];
+               //根据outline生成ppt
+       console.log("BuildPPT called with outline:", outlineContent);
+       const outlineTree = parseTextFromAiResult(outlineContent);
+       console.log("outlineTree", outlineTree);
+   
+        //遍历outlineTree中level为1的元素，并获取其children中level为2的元素
+   const levelOneElements = outlineTree.children.filter((item: any) => item.level === 1);
+   console.log("levelOneElements", levelOneElements);
+   //主题
+   const zlayout = new ZLayoutStyleClass();
+   const zlasty = ZLayoutStyle.ZL1;
+   const ThemeSlide = this.pptx.addSlide();
+   const themeStrv:string[] = [levelOneElements[0].name];
+   this.layoutCardStyle3(ThemeSlide,themeStrv,context);
+   //目录
+   const mlslide = this.pptx.addSlide();
+   const mlStrv:string[] = ["1","2","3"];
+   this.layoutCardStyle3(mlslide,mlStrv,context);
+   //正文
+           //遍历levelOneElements，并获取其children中level为2的元素
+   const levelTwoElements = levelOneElements.map((item: any) => item.children.filter((child: any) => child.level === 2));
+   console.log("levelTwoElements", levelTwoElements);
+   //遍历levelTwoElements
+   levelTwoElements.forEach((item: any) => {
+     console.log("item", item);
+     const slide = this.pptx.addSlide();
+     const conStrVec:string[] = item.map((child: any) => child.name);
+     this.layoutCardStyle3(slide,conStrVec,context);
+   });
+   //感谢
+   const thxslide = this.pptx.addSlide();
+   const thxStrv:string[] = ["Thanks"];
+   this.layoutCardStyle3(thxslide,thxStrv,context);
 
-        const slide = this.pptx.addSlide();
-        const slide2 = this.pptx.addSlide();
-        const slide3 = this.pptx.addSlide();
-
-        switch (zlayoutStyle) {
-            case ZLayoutStyle.ZL1://风格1
-                this.layoutCardStyle3(slide,conStrVec,context);
-                this.layoutCardStyle3(slide2,conStrVec,context);
-                this.layoutCardStyle3(slide3,conStrVec,context);
-                //slide.addText(ztext, {x: 1, y: 1, w: 8, fontSize: 18});
-                break;
-            case ZLayoutStyle.ZL2://风格2
-                slide.addText(ztext, { x: 1, y: 2, w: 8, fontSize: 20 });
-                break;
-            // 可以添加更多的布局样式处理
-            default:
-                slide.addText(ztext, { x: 1, y: 1, w: 8, fontSize: 18 });
-                break;
-        }
         //输出context的样式设置
         console.log("Context Style Setting:", context.getStyleSetting());
         console.log("Context System Setting:", context.getSystemSetting());
-        console.log("Layout Style:", zlayoutStyle);
-        console.log("Generated Card Text:", ztext);
+        
+       
 
-        this.pptx.writeFile({ fileName: "zemu.pptx" });
-        //this.savePPT( "zemu.pptx" );
+        this.pptx.writeFile({ fileName: themeStrv[0]+".pptx" });
     }
 
     //传入文字内容，和上下文内容，生成卡片
@@ -125,15 +199,34 @@ export class zPPTCore {
                 this.generateCardByLayoutStyle(ztext, context, zlasty);
                 console.log("Using REGULAR layout style");
                 break;
-            case ZLayoutStyleFormEnum.AI_PLUS_REGULAR:
-                //根据AI的规则建议来生成ppt
-                console.log("Using AI_PLUS_REGULAR layout style");
-                break;
             default:
                 console.log("Using default layout style");
                 break;
         }
 
+    }
+
+    public BuildPPT(outlineContent:any,context:zPPTContext)
+    {
+        //此处有两种情况，第一种是根据模板生成，第二种是根据规则生成
+        //根据模板生成
+        if(context.styleSetting.layoutStyle === ZLayoutStyleFormEnum.TEMPLATE)
+        {
+            console.log("根据模板生成");
+        }
+        //根据规则生成
+        else if(context.styleSetting.layoutStyle === ZLayoutStyleFormEnum.REGULAR)  
+        {
+            console.log("根据规则生成");
+   //主题
+   const zlayout = new ZLayoutStyleClass();
+   const zlasty = ZLayoutStyle.ZL1;
+   this.generateCardByLayoutStyle(outlineContent, context, zlasty);
+
+
+        }
+
+ 
     }
 
     //保存ppt，传入文件名

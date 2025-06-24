@@ -31,8 +31,7 @@ export interface ZStyleSetting {
 //排布来源
 export enum ZLayoutStyleFormEnum {
   TEMPLATE = 0, // 模板式
-  REGULAR = 1, // 规则式
-  AI_PLUS_REGULAR = 2 // AI+规则
+  REGULAR = 1, // ai+规则式
 }
 
 //布局样式 枚举

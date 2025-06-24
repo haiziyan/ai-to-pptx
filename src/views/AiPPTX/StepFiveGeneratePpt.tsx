@@ -14,6 +14,7 @@ import Grid from '@mui/material/Grid'
 import { Download } from "@mui/icons-material"
 import { SwapHoriz } from '@mui/icons-material'
 import { ChangeCircle } from '@mui/icons-material'
+import { clickButton2 } from 'src/zemu/zPPTIndex'
 
 let pptxObj = null as any
 let painter = null as any
@@ -24,68 +25,6 @@ const resetSize = () => {
     painter.resetSize(width, width * 0.5625)
 }
 
-const parseTextFromAiResult = (ParseText: string) => {
-  const ParseTextArray = ParseText.split("\n")
-  console.log("ParseTextArray", ParseTextArray)
-  const ParseResult: any = {}
-  let TitleOne = ''
-  let TitleTwo = ''
-  let TitleThree = ''
-  let Subject = ''
-  ParseTextArray.map((Item: string)=>{
-      if(Item.trim() !="" && Item.trim() !="```markdown" && Item.trim() !="```")  {
-          if(Item.trim().startsWith('# '))  {
-              Subject = Item.trim().substring(2)
-          }
-          else if(Item.trim().startsWith('## '))  {
-              TitleOne = Item.trim().substring(6)
-              ParseResult[TitleOne] = {}
-          }
-          else if(Item.trim().startsWith('### '))  {
-              TitleTwo = Item.trim().substring(7)
-              ParseResult[TitleOne][TitleTwo] = []
-          }
-          else if(Item.trim().startsWith('#### '))  {
-              //标题
-              TitleThree = Item.trim().substring(11)
-              if(TitleOne!="" && TitleTwo!="" && TitleThree!="" && ParseResult[TitleOne][TitleTwo])   {
-                  ParseResult[TitleOne][TitleTwo].push(TitleThree)
-              }
-          }
-          else    {
-              //标题
-              TitleThree = Item.trim().substring(6)
-              if(TitleOne!="" && TitleTwo!="" && TitleThree!="" && ParseResult[TitleOne][TitleTwo])   {
-                  ParseResult[TitleOne][TitleTwo].push(TitleThree)
-              }
-          }
-      }
-  })
-
-  const ResultTopChildren: any = []
-  const KeysOne = Object.keys(ParseResult)
-  KeysOne.map((ItemOne: string)=>{
-      const MapOne = ParseResult[ItemOne]
-      const KeysTwo = Object.keys(MapOne)
-      const ResultOneChildren: any = []
-      KeysTwo.map((ItemTwo: string)=>{
-          const MapTwo = MapOne[ItemTwo]
-          const ResultTwoChildren: any = []
-          MapTwo.map((ItemThree: string)=>{
-              ResultTwoChildren.push({name: ItemThree, level: 4, children: []})
-          })
-          const ResultTwo = {name: ItemTwo, level: 3, children: ResultTwoChildren}
-          console.log("MapTwo", ItemTwo, MapTwo)
-          ResultOneChildren.push(ResultTwo)
-      })
-      const ResultOne = {name: ItemOne, level: 2, children: ResultOneChildren}
-      ResultTopChildren.push(ResultOne)
-  })
-  const ResultMap = {name: Subject, level: 1, children: ResultTopChildren}
-  console.log("ResultMap", ResultMap)
-
-  return ResultMap
-}
 
 const StepFiveGeneratePpt = ({setActiveStep, inputData, setInputData, token}: any) => {
 
@@ -113,22 +52,8 @@ const StepFiveGeneratePpt = ({setActiveStep, inputData, setInputData, token}: an
 
     console.log("generateNewPptx", templateId, outlineContent, dataUrl);
     console.log("inputData", inputData);
-    const outlineTree = parseTextFromAiResult(outlineContent);
-    console.log("outlineTree", outlineTree);
 
-
-    //遍历outlineTree中level为1的元素，并获取其children中level为2的元素
-    const levelOneElements = outlineTree.children.filter((item: any) => item.level === 1);
-    console.log("levelOneElements", levelOneElements);
-
-    //遍历levelOneElements，并获取其children中level为2的元素
-    const levelTwoElements = levelOneElements.map((item: any) => item.children.filter((child: any) => child.level === 2));
-    console.log("levelTwoElements", levelTwoElements);
-    //遍历levelTwoElements
-    levelTwoElements.forEach((item: any) => {
-      console.log("item", item);
-    });
-
+    clickButton2(outlineTree);
     //遍历levelTwoElements，并获取其children中level为3的元素
     return;
 
