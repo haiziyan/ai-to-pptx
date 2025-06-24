@@ -116,19 +116,20 @@ const StepFiveGeneratePpt = ({setActiveStep, inputData, setInputData, token}: an
     const outlineTree = parseTextFromAiResult(outlineContent);
     console.log("outlineTree", outlineTree);
 
-    //遍历outlineTree
-    const outlineTreeArray:any = [];
-    const traverseOutlineTree = (tree: any) => {
-      if(tree.children && tree.children.length > 0) {
-        tree.children.forEach((child: any) => {
-          traverseOutlineTree(child);
-        });
-      }
-      outlineTreeArray.push(tree);
-    };
-    traverseOutlineTree(outlineTree);
-    console.log("outlineTreeArray", outlineTreeArray);
 
+    //遍历outlineTree中level为1的元素，并获取其children中level为2的元素
+    const levelOneElements = outlineTree.children.filter((item: any) => item.level === 1);
+    console.log("levelOneElements", levelOneElements);
+
+    //遍历levelOneElements，并获取其children中level为2的元素
+    const levelTwoElements = levelOneElements.map((item: any) => item.children.filter((child: any) => child.level === 2));
+    console.log("levelTwoElements", levelTwoElements);
+    //遍历levelTwoElements
+    levelTwoElements.forEach((item: any) => {
+      console.log("item", item);
+    });
+
+    //遍历levelTwoElements，并获取其children中level为3的元素
     return;
 
 
