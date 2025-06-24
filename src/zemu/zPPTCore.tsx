@@ -562,9 +562,9 @@ const outlineTree2 =
         ]
     }
     
-   
+
         //遍历outlineTree中level为1的元素，并获取其children中level为2的元素
-   const levelOneElements = outlineTree2.name;
+   const levelOneElements = outlineTree.name;
    console.log("levelOneElements", levelOneElements);
    //主题
    const zlayout = new ZLayoutStyleClass();
@@ -578,10 +578,10 @@ const outlineTree2 =
    this.layoutCardStyle3(mlslide,mlStrv,context);
    //正文
            //遍历outlineTree2.children
-           outlineTree2.children.forEach((item: any) => {
+           outlineTree.children.forEach((item: any) => {
             console.log("item", item);
             const slide = this.pptx.addSlide();
-            const conStrVec:string[] = item.map((child: any) => child.name);
+            const conStrVec:string[] = item.name;
             this.layoutCardStyle3(slide,conStrVec,context);
            });
 
