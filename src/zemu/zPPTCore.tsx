@@ -140,15 +140,437 @@ export class zPPTCore {
        console.log("BuildPPT called with outline:", outlineContent);
        const outlineTree = parseTextFromAiResult(outlineContent);
        console.log("outlineTree", outlineTree);
+const outlineTree2 = 
+       {
+        "name": "2025年就业市场预测报告",
+        "level": 1,
+        "children": [
+            {
+                "name": "全球就业市场宏观趋势",
+                "level": 2,
+                "children": [
+                    {
+                        "name": " 经济复苏与就业增长关联性",
+                        "level": 3,
+                        "children": [
+                            {
+                                "name": "后疫情时代全球经济复苏对就业的拉动作用。",
+                                "level": 4,
+                                "children": []
+                            },
+                            {
+                                "name": "主要经济体（美、中、欧）就业增长差异分析。",
+                                "level": 4,
+                                "children": []
+                            },
+                            {
+                                "name": "通货膨胀与劳动力成本上升的影响。",
+                                "level": 4,
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "name": " 人口结构与劳动力供给变化",
+                        "level": 3,
+                        "children": [
+                            {
+                                "name": "老龄化对劳动力市场的长期挑战。",
+                                "level": 4,
+                                "children": []
+                            },
+                            {
+                                "name": "Z世代成为就业主力军的特征分析。",
+                                "level": 4,
+                                "children": []
+                            },
+                            {
+                                "name": "移民政策对劳动力补充的作用。",
+                                "level": 4,
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "name": " 技术驱动的就业结构转型",
+                        "level": 3,
+                        "children": [
+                            {
+                                "name": "自动化对传统岗位的替代率预测。",
+                                "level": 4,
+                                "children": []
+                            },
+                            {
+                                "name": "绿色经济创造的新就业机会。",
+                                "level": 4,
+                                "children": []
+                            },
+                            {
+                                "name": "远程办公常态化对地理分布的改变。",
+                                "level": 4,
+                                "children": []
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "关键行业就业前景分析",
+                "level": 2,
+                "children": [
+                    {
+                        "name": " 科技与数字经济领域",
+                        "level": 3,
+                        "children": [
+                            {
+                                "name": "人工智能、区块链等前沿技术岗位需求激增。",
+                                "level": 4,
+                                "children": []
+                            },
+                            {
+                                "name": "数据安全与隐私保护职业的爆发式增长。",
+                                "level": 4,
+                                "children": []
+                            },
+                            {
+                                "name": "低代码开发推动非技术背景人员转型。",
+                                "level": 4,
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "name": " 医疗与健康产业",
+                        "level": 3,
+                        "children": [
+                            {
+                                "name": "基因编辑和精准医疗带动的专业人才缺口。",
+                                "level": 4,
+                                "children": []
+                            },
+                            {
+                                "name": "心理健康服务从业者需求扩大。",
+                                "level": 4,
+                                "children": []
+                            },
+                            {
+                                "name": "老龄化催生的护理岗位区域性短缺。",
+                                "level": 4,
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "name": " 能源与可持续发展",
+                        "level": 3,
+                        "children": [
+                            {
+                                "name": "可再生能源产业链就业规模预测。",
+                                "level": 4,
+                                "children": []
+                            },
+                            {
+                                "name": "碳中和管理咨询成为新兴职业。",
+                                "level": 4,
+                                "children": []
+                            },
+                            {
+                                "name": "传统能源行业岗位的转型路径。",
+                                "level": 4,
+                                "children": []
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "技能需求与职业能力重构",
+                "level": 2,
+                "children": [
+                    {
+                        "name": " 未来五年高需求技能TOP5",
+                        "level": 3,
+                        "children": [
+                            {
+                                "name": "复合型数字技能（如AI+行业知识）。",
+                                "level": 4,
+                                "children": []
+                            },
+                            {
+                                "name": "跨文化协作与多语言能力。",
+                                "level": 4,
+                                "children": []
+                            },
+                            {
+                                "name": "创造性问题解决能力。",
+                                "level": 4,
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "name": " 教育体系与就业市场的衔接",
+                        "level": 3,
+                        "children": [
+                            {
+                                "name": "微证书和纳米学位的重要性提升。",
+                                "level": 4,
+                                "children": []
+                            },
+                            {
+                                "name": "企业-高校联合培养模式案例。",
+                                "level": 4,
+                                "children": []
+                            },
+                            {
+                                "name": "终身学习平台的渗透率变化。",
+                                "level": 4,
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "name": " 自动化时代的不可替代能力",
+                        "level": 3,
+                        "children": [
+                            {
+                                "name": "情感智能（EQ）的价值重估。",
+                                "level": 4,
+                                "children": []
+                            },
+                            {
+                                "name": "复杂决策中的伦理判断能力。",
+                                "level": 4,
+                                "children": []
+                            },
+                            {
+                                "name": "人机协作中的界面管理技能。",
+                                "level": 4,
+                                "children": []
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "地域性就业差异与机会",
+                "level": 2,
+                "children": [
+                    {
+                        "name": " 新兴经济体就业增长极",
+                        "level": 3,
+                        "children": [
+                            {
+                                "name": "东南亚数字经济的就业红利。",
+                                "level": 4,
+                                "children": []
+                            },
+                            {
+                                "name": "非洲科技初创企业的用人需求。",
+                                "level": 4,
+                                "children": []
+                            },
+                            {
+                                "name": "中东新能源项目的本地化招聘趋势。",
+                                "level": 4,
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "name": " 发达国家区域分化现象",
+                        "level": 3,
+                        "children": [
+                            {
+                                "name": "美国\"阳光地带\" vs \"铁锈地带\"对比。",
+                                "level": 4,
+                                "children": []
+                            },
+                            {
+                                "name": "欧盟数字枢纽城市的集聚效应。",
+                                "level": 4,
+                                "children": []
+                            },
+                            {
+                                "name": "日本地方创生政策下的就业激励。",
+                                "level": 4,
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "name": " 远程工作对地理限制的突破",
+                        "level": 3,
+                        "children": [
+                            {
+                                "name": "全球分布式团队的薪酬差异研究。",
+                                "level": 4,
+                                "children": []
+                            },
+                            {
+                                "name": "数字游民签证政策的国际比较。",
+                                "level": 4,
+                                "children": []
+                            },
+                            {
+                                "name": "城市人才回流现象分析。",
+                                "level": 4,
+                                "children": []
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "政策与制度影响因素",
+                "level": 2,
+                "children": [
+                    {
+                        "name": " 劳动法规适应性改革",
+                        "level": 3,
+                        "children": [
+                            {
+                                "name": "零工经济劳动者的权益保障进展。",
+                                "level": 4,
+                                "children": []
+                            },
+                            {
+                                "name": "四天工作制试点效果追踪。",
+                                "level": 4,
+                                "children": []
+                            },
+                            {
+                                "name": "跨境远程工作的税收政策调整。",
+                                "level": 4,
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "name": " 产业政策与就业引导",
+                        "level": 3,
+                        "children": [
+                            {
+                                "name": "各国半导体产业补贴创造的岗位估算。",
+                                "level": 4,
+                                "children": []
+                            },
+                            {
+                                "name": "新能源汽车产业链的区域扶持对比。",
+                                "level": 4,
+                                "children": []
+                            },
+                            {
+                                "name": "数字经济特别行政区的就业实验。",
+                                "level": 4,
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "name": " 移民与人才引进政策",
+                        "level": 3,
+                        "children": [
+                            {
+                                "name": "技术移民快速通道的竞争态势。",
+                                "level": 4,
+                                "children": []
+                            },
+                            {
+                                "name": "留学生就业限制的放宽趋势。",
+                                "level": 4,
+                                "children": []
+                            },
+                            {
+                                "name": "高端人才争夺战的典型案例。",
+                                "level": 4,
+                                "children": []
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "风险与不确定性分析",
+                "level": 2,
+                "children": [
+                    {
+                        "name": " 技术突变带来的就业冲击",
+                        "level": 3,
+                        "children": [
+                            {
+                                "name": "AGI（通用人工智能）的潜在影响。",
+                                "level": 4,
+                                "children": []
+                            },
+                            {
+                                "name": "量子计算商业化对密码学岗位的颠覆。",
+                                "level": 4,
+                                "children": []
+                            },
+                            {
+                                "name": "生物技术突破引发的伦理就业争议。",
+                                "level": 4,
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "name": " 地缘政治与供应链重构",
+                        "level": 3,
+                        "children": [
+                            {
+                                "name": "贸易壁垒导致的制造业岗位迁移。",
+                                "level": 4,
+                                "children": []
+                            },
+                            {
+                                "name": "关键矿产争夺催生的新职业类型。",
+                                "level": 4,
+                                "children": []
+                            },
+                            {
+                                "name": "数字主权建设带来的本地化就业。",
+                                "level": 4,
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "name": " 社会价值观变迁的影响",
+                        "level": 3,
+                        "children": [
+                            {
+                                "name": "ESG相关岗位的需求波动分析。",
+                                "level": 4,
+                                "children": []
+                            },
+                            {
+                                "name": "职场代际冲突的缓解机制。",
+                                "level": 4,
+                                "children": []
+                            },
+                            {
+                                "name": "工作意义重构对职业选择的影响。",
+                                "level": 4,
+                                "children": []
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+    
    
         //遍历outlineTree中level为1的元素，并获取其children中level为2的元素
-   const levelOneElements = outlineTree.children.filter((item: any) => item.level === 1);
+   const levelOneElements = outlineTree2.children.filter((item: any) => item.level === 1);
    console.log("levelOneElements", levelOneElements);
    //主题
    const zlayout = new ZLayoutStyleClass();
    const zlasty = ZLayoutStyle.ZL1;
    const ThemeSlide = this.pptx.addSlide();
-   const themeStrv:string[] = [levelOneElements[0]];
+   const themeStrv:string[] = [levelOneElements[0].name];
    this.layoutCardStyle3(ThemeSlide,themeStrv,context);
    //目录
    const mlslide = this.pptx.addSlide();
