@@ -47,6 +47,13 @@ const StepFiveGeneratePpt = ({setActiveStep, inputData, setInputData, token}: an
   }
 
   const generateNewPptx = (templateId: string, outlineContent: string, dataUrl: string) => {
+
+    console.log("generateNewPptx", templateId, outlineContent, dataUrl);
+    console.log("inputData", inputData);
+
+    return;
+
+
       const timer = setInterval(() => {
           setDescTime(descTime => descTime + 1)
       }, 1000)
