@@ -206,7 +206,7 @@ const StepTwoThreeGenerateOutline = ({activeStep, setActiveStep, inputData, setI
                   onClick={() => setActiveStep((prevActiveStep: number) => prevActiveStep + 1) }
                   startIcon={<PlayCircleFilled />}
                   >
-                  下一步：选择模板
+                  下一步：选择风格
                 </Button>
               </Grid>
             </Grid>
