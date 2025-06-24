@@ -577,16 +577,15 @@ const outlineTree2 =
    const mlStrv:string[] = ["1","2","3"];
    this.layoutCardStyle3(mlslide,mlStrv,context);
    //正文
-           //遍历levelOneElements，并获取其children中level为2的元素
-   const levelTwoElements = outlineTree2.children.map((item: any)  => item.level === 2);
-   console.log("levelTwoElements", levelTwoElements);
-   //遍历levelTwoElements
-   levelTwoElements.forEach((item: any) => {
-     console.log("item", item);
-     const slide = this.pptx.addSlide();
-     const conStrVec:string[] = item.map((child: any) => child.name);
-     this.layoutCardStyle3(slide,conStrVec,context);
-   });
+           //遍历outlineTree2.children
+           outlineTree2.children.forEach((item: any) => {
+            console.log("item", item);
+            const slide = this.pptx.addSlide();
+            const conStrVec:string[] = item.map((child: any) => child.name);
+            this.layoutCardStyle3(slide,conStrVec,context);
+           });
+
+
    //感谢
    const thxslide = this.pptx.addSlide();
    const thxStrv:string[] = ["Thanks"];
