@@ -119,7 +119,7 @@ const StepTwoThreeGenerateOutline = ({activeStep, setActiveStep, inputData, setI
                       outline = outline + json.choices[0]['delta']['content']
                       const outlineHtml = marked.parse(outline.replace('```markdown', '').replace(/```/g, '')) as string
                       if(outline && outline.length > 20) {
-                        setInputData((prevState: any) => ({...prevState, outlineContent: outlineTree, outlineHtml: outlineHtml}))
+                        setInputData((prevState: any) => ({...prevState, outlineContent: outline, outlineHtml: outlineHtml}))
                       }
                     }
                 }
@@ -132,7 +132,7 @@ const StepTwoThreeGenerateOutline = ({activeStep, setActiveStep, inputData, setI
                 outlineTree = parseTextFromAiResult(outline)
                 console.log("[DONE]outlineTree", outlineTree)
                 const outlineHtml = marked.parse(outline.replace('```markdown', '').replace(/```/g, '')) as string
-                setInputData((prevState: any) => ({...prevState, outlineContent: outlineTree, outlineHtml: outlineHtml}))
+                setInputData((prevState: any) => ({...prevState, outlineContent: outline, outlineHtml: outlineHtml}))
             }
         }
         source.onend = function (data: any) {
