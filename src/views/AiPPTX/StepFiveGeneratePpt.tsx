@@ -53,7 +53,7 @@ const StepFiveGeneratePpt = ({setActiveStep, inputData, setInputData, token}: an
     console.log("generateNewPptx", templateId, outlineContent, dataUrl);
     console.log("inputData", inputData);
 
-    clickButton2(outlineTree);
+    clickButton2(outlineContent);
     //遍历levelTwoElements，并获取其children中level为3的元素
     return;
 
