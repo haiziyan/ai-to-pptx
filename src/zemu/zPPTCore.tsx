@@ -578,7 +578,7 @@ const outlineTree2 =
    this.layoutCardStyle3(mlslide,mlStrv,context);
    //正文
            //遍历levelOneElements，并获取其children中level为2的元素
-   const levelTwoElements = outlineTree2.children.map((item: any) => item.children.filter((child: any) => child.level === 2));
+   const levelTwoElements = outlineTree2.children.map((item: any) => item.filter((child: any) => child.level === 2));
    console.log("levelTwoElements", levelTwoElements);
    //遍历levelTwoElements
    levelTwoElements.forEach((item: any) => {
