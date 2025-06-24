@@ -148,7 +148,7 @@ export class zPPTCore {
    const zlayout = new ZLayoutStyleClass();
    const zlasty = ZLayoutStyle.ZL1;
    const ThemeSlide = this.pptx.addSlide();
-   const themeStrv:string[] = [levelOneElements[0].name];
+   const themeStrv:string[] = [levelOneElements[0]];
    this.layoutCardStyle3(ThemeSlide,themeStrv,context);
    //目录
    const mlslide = this.pptx.addSlide();
