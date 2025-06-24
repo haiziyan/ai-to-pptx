@@ -564,13 +564,13 @@ const outlineTree2 =
     
    
         //遍历outlineTree中level为1的元素，并获取其children中level为2的元素
-   const levelOneElements = outlineTree2.children.filter((item: any) => item.level === 1);
+   const levelOneElements = outlineTree2.name;
    console.log("levelOneElements", levelOneElements);
    //主题
    const zlayout = new ZLayoutStyleClass();
    const zlasty = ZLayoutStyle.ZL1;
    const ThemeSlide = this.pptx.addSlide();
-   const themeStrv:string[] = [levelOneElements[0].name];
+   const themeStrv:string[] = [levelOneElements];
    this.layoutCardStyle3(ThemeSlide,themeStrv,context);
    //目录
    const mlslide = this.pptx.addSlide();
@@ -578,7 +578,7 @@ const outlineTree2 =
    this.layoutCardStyle3(mlslide,mlStrv,context);
    //正文
            //遍历levelOneElements，并获取其children中level为2的元素
-   const levelTwoElements = levelOneElements.map((item: any) => item.children.filter((child: any) => child.level === 2));
+   const levelTwoElements = outlineTree2.children.map((item: any) => item.children.filter((child: any) => child.level === 2));
    console.log("levelTwoElements", levelTwoElements);
    //遍历levelTwoElements
    levelTwoElements.forEach((item: any) => {
