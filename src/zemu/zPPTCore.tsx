@@ -574,15 +574,21 @@ const outlineTree2 =
    this.layoutCardStyle3(ThemeSlide,themeStrv,context);
    //目录
    const mlslide = this.pptx.addSlide();
-   const mlStrv:string[] = ["1","2","3"];
+   const mlStrv:string[] = [];
+   outlineTree2.children.forEach((item: any) => {
+    mlStrv.push(item.name);
+   });
    this.layoutCardStyle3(mlslide,mlStrv,context);
    //目录大业及内容业
            //遍历outlineTree2.children
            outlineTree2.children.forEach((item: any) => {
             console.log("item", item);
             const slide = this.pptx.addSlide();
-            const muStrVec:string[] = item.name;
+            const muStrVec:string[] = [];
+            muStrVec.push(item.name);
+            //目录大页
             this.layoutCardStyle3(slide,muStrVec,context);
+
             const conStrVec:string[] = [];
             //遍历item.children
             item.children.forEach((child: any) => {
@@ -590,6 +596,7 @@ const outlineTree2 =
             });
             console.log("conStrVec", conStrVec);
             const slide1 = this.pptx.addSlide();
+            //内容页
             this.layoutCardStyle3(slide1,conStrVec,context);
            });
 
