@@ -767,8 +767,8 @@ const outlineTree2 =
         const cardW = context.styleSetting.cardW;
         const cardH = context.styleSetting.cardH;
         const cradBSpace = context.styleSetting.cardBorderSpacing;
-        
         const countLent=conStr.length;
+        const textSize = 50.0/countLent;//字体大小
 
 
         //计算文本框的长度
@@ -778,7 +778,7 @@ const outlineTree2 =
         for (let i = 0;i<countLent;i++) 
         {
             const tStr = conStr[i];
-            slide.addText(tStr, { x: cradBSpace+textBoxLength*i, y: ypos, w: textBoxLength, h: 1.4, align: "left", fontSize: 50, fontFace: "Arial" });
+            slide.addText(tStr, { x: cradBSpace+textBoxLength*i, y: ypos, w: textBoxLength, h: 1.4, align: "left", fontSize: textSize, fontFace: "Arial" });
         }
 
         //添加图片
