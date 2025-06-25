@@ -564,7 +564,7 @@ const outlineTree2 =
     
 
         //遍历outlineTree中level为1的元素，并获取其children中level为2的元素
-   const levelOneElements = outlineTree.name;
+   const levelOneElements = outlineTree2.name;
    console.log("levelOneElements", levelOneElements);
    //主题
    const zlayout = new ZLayoutStyleClass();
@@ -576,13 +576,21 @@ const outlineTree2 =
    const mlslide = this.pptx.addSlide();
    const mlStrv:string[] = ["1","2","3"];
    this.layoutCardStyle3(mlslide,mlStrv,context);
-   //正文
+   //目录大业及内容业
            //遍历outlineTree2.children
-           outlineTree.children.forEach((item: any) => {
+           outlineTree2.children.forEach((item: any) => {
             console.log("item", item);
             const slide = this.pptx.addSlide();
-            const conStrVec:string[] = item.name;
-            this.layoutCardStyle3(slide,conStrVec,context);
+            const muStrVec:string[] = item.name;
+            this.layoutCardStyle3(slide,muStrVec,context);
+            const conStrVec:string[] = [];
+            //遍历item.children
+            item.children.forEach((child: any) => {
+                conStrVec.push(child.name);
+            });
+            console.log("conStrVec", conStrVec);
+            const slide1 = this.pptx.addSlide();
+            this.layoutCardStyle3(slide1,conStrVec,context);
            });
 
 
@@ -761,6 +769,7 @@ const outlineTree2 =
         const cradBSpace = context.styleSetting.cardBorderSpacing;
         
         const countLent=conStr.length;
+
 
         //计算文本框的长度
         const textBoxLength = (cardW - cradBSpace*2)/countLent;
