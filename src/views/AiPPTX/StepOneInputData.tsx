@@ -89,8 +89,8 @@ const StepOneInputData = ({ setActiveStep, setInputData }: any) => {
           {/* 四个按钮 */}
           <Box sx={{ display: "flex", gap: 2, mb: 2 }}>
         <Button
-          variant={selectedOption === "inputTopic" ? "contained" : "outlined"}
-          color={selectedOption === "inputTopic" ? "primary" : "inherit"}
+          variant={importOption === "inputTopic" ? "contained" : "outlined"}
+          color={importOption === "inputTopic" ? "primary" : "inherit"}
           onClick={() => handleOptionChange("inputTopic")}
           startIcon={<Description />} // 输入主题与要求图标
         >
@@ -105,9 +105,9 @@ const StepOneInputData = ({ setActiveStep, setInputData }: any) => {
           导入外部资料（网络/文件等）
         </Button>
       </Box>
-      
+
       {/* 输入主题与要求 */}
-      {selectedOption === "inputTopic" && (
+      {importOption === "inputTopic" && (
         <TextField
           fullWidth
           label="请输入主题与要求"
