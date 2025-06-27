@@ -105,9 +105,6 @@ const StepOneInputData = ({ setActiveStep, setInputData }: any) => {
           导入外部资料（网络/文件等）
         </Button>
       </Box>
-        </>
-      )}
-
       {selectedOption === "importData" && (
         <>
           {/* 四个按钮 */}
@@ -182,6 +179,10 @@ const StepOneInputData = ({ setActiveStep, setInputData }: any) => {
           sx={{ mt: 2, mb: 2 }}
         />
       )}
+        </>
+      )}
+
+
       {/* 更多生成要求 */}
       <Button
         variant="text"
