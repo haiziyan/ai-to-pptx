@@ -105,6 +105,18 @@ const StepOneInputData = ({ setActiveStep, setInputData }: any) => {
           导入外部资料（网络/文件等）
         </Button>
       </Box>
+      
+      {/* 输入主题与要求 */}
+      {selectedOption === "inputTopic" && (
+        <TextField
+          fullWidth
+          label="请输入主题与要求"
+          variant="outlined"
+          value={inputText}
+          onChange={(e) => setInputText(e.target.value)}
+          sx={{ mt: 2, mb: 2 }}
+        />
+      )}
       {selectedOption === "importData" && (
         <>
           {/* 四个按钮 */}
@@ -169,16 +181,7 @@ const StepOneInputData = ({ setActiveStep, setInputData }: any) => {
           )}
         </>
       )}
-     {selectedOption === "inputTopic" && (
-        <TextField
-          fullWidth
-          label="请输入主题与要求"
-          variant="outlined"
-          value={inputText}
-          onChange={(e) => setInputText(e.target.value)}
-          sx={{ mt: 2, mb: 2 }}
-        />
-      )}
+
         </>
       )}
 
