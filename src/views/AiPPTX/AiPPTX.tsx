@@ -19,15 +19,7 @@ import StepFourSelectTemplate from './StepFourSelectTemplate'
 import StepFiveGeneratePpt from './StepFiveGeneratePpt'
 
 const steps = [
-  {
-    title: '开始创作',
-    subtitle: '请输入您的要求'
-  },
-  {
-    title: '输入主题',
-    subtitle: '输入主题'
-  },
-  {
+    {
     title: '大纲Agent',
     subtitle: '大纲Agent'
   },
@@ -97,18 +89,18 @@ const StepperLinearWithValidation = () => {
             overflowY: 'auto', // 内容超出时显示滚动条
           }}
         >
-          {activeStep === 0 && (
+          {(activeStep === 0 || activeStep === 1)&& (
             <StepOneInputData setActiveStep={setActiveStep} setInputData={setInputData} />
           )}
-          {(activeStep === 1 || activeStep === 2) && (
+          {/*{(activeStep === 1 || activeStep === 2) && (
             <StepTwoThreeGenerateOutline
               activeStep={activeStep}
               setActiveStep={setActiveStep}
               inputData={inputData}
               setInputData={setInputData}
             />
-          )}
-          {activeStep === 3 && (
+          )}*/}
+          {activeStep === 2 && (
             <StepFourSelectTemplate
               activeStep={activeStep}
               setActiveStep={setActiveStep}
@@ -116,7 +108,7 @@ const StepperLinearWithValidation = () => {
               setInputData={setInputData}
             />
           )}
-          {activeStep === 4 && (
+          {activeStep === 3 && (
             <StepFiveGeneratePpt
               activeStep={activeStep}
               setActiveStep={setActiveStep}
