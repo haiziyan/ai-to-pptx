@@ -55,7 +55,7 @@ code[class*='language-'] {
   margin: 0 calc(20vw);
 }
 .outline_edit {
-  width: 32rem;
+  width: 80rem;
   margin: 1rem auto;
 }
 
@@ -126,7 +126,7 @@ code[class*='language-'] {
   border-style: dashed;
   width: max-content;
   display: inline-block;
-  color: #fd03ae;
+  color: #066ef5;
   background-color: #e0dcf3;
 }
 .chapter_name, .page_name, .title_name {
