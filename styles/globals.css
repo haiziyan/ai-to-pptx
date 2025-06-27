@@ -93,7 +93,7 @@ code[class*='language-'] {
 .outline_div input {
   border: none;
   outline: none;
-  width: 300px;
+  width: 250px;
 }
 .outline_div input:hover {
   border-width: 1px;
