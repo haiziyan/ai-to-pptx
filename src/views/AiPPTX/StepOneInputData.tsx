@@ -27,7 +27,7 @@ const StepOneInputData = ({ setActiveStep, setInputData }: any) => {
   // ** States
 
   // 状态管理
-  const [selectedOption, setSelectedOption] = useState("inputTopic"); // 默认选中 "输入主题与要求"
+  const [selectedOption, setSelectedOption] = useState("InputData"); // 默认选中 "输入主题与要求"
   const [importOption, setImportOption] = useState("inputText"); // 默认选中 "输入文本"
   const [inputText, setInputText] = useState("2025年就业市场预测"); // 输入框内容
   const [showMoreOptions, setShowMoreOptions] = useState(false); // 是否显示更多生成要求
@@ -108,17 +108,6 @@ const StepOneInputData = ({ setActiveStep, setInputData }: any) => {
         </>
       )}
 
-      {selectedOption === "inputTopic" && (
-        <TextField
-          fullWidth
-          label="请输入主题与要求"
-          variant="outlined"
-          value={inputText}
-          onChange={(e) => setInputText(e.target.value)}
-          sx={{ mt: 2, mb: 2 }}
-        />
-      )}
-
       {selectedOption === "importData" && (
         <>
           {/* 四个按钮 */}
@@ -183,7 +172,16 @@ const StepOneInputData = ({ setActiveStep, setInputData }: any) => {
           )}
         </>
       )}
-
+     {selectedOption === "inputTopic" && (
+        <TextField
+          fullWidth
+          label="请输入主题与要求"
+          variant="outlined"
+          value={inputText}
+          onChange={(e) => setInputText(e.target.value)}
+          sx={{ mt: 2, mb: 2 }}
+        />
+      )}
       {/* 更多生成要求 */}
       <Button
         variant="text"
