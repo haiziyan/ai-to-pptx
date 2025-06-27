@@ -82,6 +82,14 @@ const StepOneInputData = ({ setActiveStep, setInputData }: any) => {
           导入外部资料（网络/文件等）
         </Button>
         <Button
+          variant={selectedOption === "InputData" ? "contained" : "outlined"}
+          color={selectedOption === "InputData" ? "primary" : "inherit"}
+          onClick={() => handleOptionChange("InputData")}
+          startIcon={<CloudUpload />} // 
+        >
+          内容输入
+        </Button>
+        <Button
           variant={selectedOption === "ModifyData" ? "contained" : "outlined"}
           color={selectedOption === "ModifyData" ? "primary" : "inherit"}
           onClick={() => handleOptionChange("ModifyData")}
@@ -92,6 +100,30 @@ const StepOneInputData = ({ setActiveStep, setInputData }: any) => {
       </Box>
 
       {/* 第二行：根据选项显示不同内容 */}
+      {selectedOption === "InputData" && (
+        <>
+          {/* 四个按钮 */}
+          <Box sx={{ display: "flex", gap: 2, mb: 2 }}>
+        <Button
+          variant={selectedOption === "inputTopic" ? "contained" : "outlined"}
+          color={selectedOption === "inputTopic" ? "primary" : "inherit"}
+          onClick={() => handleOptionChange("inputTopic")}
+          startIcon={<Description />} // 输入主题与要求图标
+        >
+          输入主题与要求
+        </Button>
+        <Button
+          variant={selectedOption === "importData" ? "contained" : "outlined"}
+          color={selectedOption === "importData" ? "primary" : "inherit"}
+          onClick={() => handleOptionChange("importData")}
+          startIcon={<CloudUpload />} // 导入外部资料图标
+        >
+          导入外部资料（网络/文件等）
+        </Button>
+      </Box>
+        </>
+      )}
+
       {selectedOption === "inputTopic" && (
         <TextField
           fullWidth
