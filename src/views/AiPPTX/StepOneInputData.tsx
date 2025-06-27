@@ -80,14 +80,6 @@ const StepOneInputData = ({ setActiveStep, setInputData }: any) => {
         >
           内容输入
         </Button>
-        <Button
-          variant={selectedOption === "ModifyData" ? "contained" : "outlined"}
-          color={selectedOption === "ModifyData" ? "primary" : "inherit"}
-          onClick={() => handleOptionChange("ModifyData")}
-          startIcon={<CloudUpload />} // 
-        >
-          编辑大纲
-        </Button>
       </Box>
   
       {/* 第二行：根据选项显示不同内容 */}
