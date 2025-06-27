@@ -64,6 +64,7 @@ const StepOneInputData = ({ setActiveStep, setInputData }: any) => {
   return (
     <Box sx={{  }}>
       {/* 第一行：两个按钮 */}
+      <Box sx={{ display: "flex", gap: 2, mb: 2 }}>
         <Button
           variant={selectedOption === "InputData" ? "contained" : "outlined"}
           color={selectedOption === "InputData" ? "primary" : "inherit"}
