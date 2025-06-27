@@ -1,6 +1,6 @@
 export const authConfig = {
-    AppName: 'Ai-To-PPTX',
-    mode: 'dark', // theme: light | dark
+    AppName: 'ZEMU',
+    mode: 'light', // theme: light | dark
 }
 
 export const defaultConfig = {}

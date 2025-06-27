@@ -12,7 +12,7 @@ code {
     'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue';
   padding: 0.1rem 0.4rem;
   font-size: 90%;
-  color: #d400ff;
+  color: #030003;
   border-radius: 0.1335rem;
 }
 code:not([class*='language-']):before,
@@ -126,7 +126,7 @@ code[class*='language-'] {
   border-style: dashed;
   width: max-content;
   display: inline-block;
-  color: #624fc4;
+  color: #fd03ae;
   background-color: #e0dcf3;
 }
 .chapter_name, .page_name, .title_name {

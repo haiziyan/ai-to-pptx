@@ -766,7 +766,6 @@ const outlineTree2 =
     public layoutCardStyle3(slide: any,conStr:string[],context:zPPTContext) 
     {
         //文字数组
-        //slide.background = context.styleSetting.cardBackground; 
         slide.background = { color: context.styleSetting.cardBackground };
 
         slide.color = context.styleSetting.bodyColor;

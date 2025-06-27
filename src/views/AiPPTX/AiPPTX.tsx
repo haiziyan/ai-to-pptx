@@ -28,16 +28,16 @@ const steps = [
     subtitle: '输入主题'
   },
   {
-    title: '编辑大纲',
-    subtitle: '编辑大纲'
+    title: '大纲Agent',
+    subtitle: '大纲Agent'
   },
   {
-    title: '选择风格',
-    subtitle: '选择风格'
+    title: 'PPTAgent',
+    subtitle: 'PPTAgent'
   },
   {
-    title: '制作PTPX',
-    subtitle: '制作PTPX'
+    title: '演讲Agent',
+    subtitle: '演讲Agent'
   }
 ]
 
