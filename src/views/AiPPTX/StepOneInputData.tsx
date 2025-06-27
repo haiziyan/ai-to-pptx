@@ -1,4 +1,4 @@
-// ** React Imports
+ // ** React Imports
 import { Fragment, useState } from 'react'
 
 //import { clickButton1 } from 'src/zemu/zPPTIndex'
@@ -27,7 +27,8 @@ const StepOneInputData = ({ setActiveStep, setInputData }: any) => {
   // ** States
 
   // 状态管理
-  const [selectedOption, setSelectedOption] = useState("InputData"); // 默认选中 "输入主题与要求"
+  const [selectedOption, setSelectedOption] = useState("InputData"); // 默认选中 "内容输入"
+  const [inputType, setInputType] = useState("inputTopic"); // 默认选中 "输入主题与要求"
   const [importOption, setImportOption] = useState("inputText"); // 默认选中 "输入文本"
   const [inputText, setInputText] = useState("2025年就业市场预测"); // 输入框内容
   const [showMoreOptions, setShowMoreOptions] = useState(false); // 是否显示更多生成要求
@@ -36,6 +37,11 @@ const StepOneInputData = ({ setActiveStep, setInputData }: any) => {
   // 处理选项切换
   const handleOptionChange = (option: any) => {
     setSelectedOption(option);
+  };
+
+  // 处理输入类型切换
+  const handleInputTypeChange = (type: any) => {
+    setInputType(type);
   };
 
   // 处理导入选项切换
@@ -52,12 +58,13 @@ const StepOneInputData = ({ setActiveStep, setInputData }: any) => {
   const handleGenerateOutline = () => {
     console.log("生成 PPTX 的参数：", {
       selectedOption,
+      inputType,
       importOption,
       inputText,
       moreOptions,
     });
     //clickButton1();
-    setInputData((prevState: any) => ({...prevState, selectedOption, importOption, inputText, moreOptions}))
+    setInputData((prevState: any) => ({...prevState, selectedOption, inputType, importOption, inputText, moreOptions}))
     setActiveStep((prevActiveStep: number) => prevActiveStep + 1)
   };
 
@@ -89,35 +96,35 @@ const StepOneInputData = ({ setActiveStep, setInputData }: any) => {
           {/* 四个按钮 */}
           <Box sx={{ display: "flex", gap: 2, mb: 2 }}>
         <Button
-          variant={importOption === "inputTopic" ? "contained" : "outlined"}
-          color={importOption === "inputTopic" ? "primary" : "inherit"}
-          onClick={() => handleOptionChange("inputTopic")}
+          variant={inputType === "inputTopic" ? "contained" : "outlined"}
+          color={inputType === "inputTopic" ? "primary" : "inherit"}
+          onClick={() => handleInputTypeChange("inputTopic")}
           startIcon={<Description />} // 输入主题与要求图标
         >
           输入主题与要求
         </Button>
         <Button
-          variant={selectedOption === "importData" ? "contained" : "outlined"}
-          color={selectedOption === "importData" ? "primary" : "inherit"}
-          onClick={() => handleOptionChange("importData")}
+          variant={inputType === "importData" ? "contained" : "outlined"}
+          color={inputType === "importData" ? "primary" : "inherit"}
+          onClick={() => handleInputTypeChange("importData")}
           startIcon={<CloudUpload />} // 导入外部资料图标
         >
           导入外部资料（网络/文件等）
         </Button>
       </Box>
-
+      
       {/* 输入主题与要求 */}
-      {importOption === "inputTopic" && (
+      {inputType === "inputTopic" && (
         <TextField
           fullWidth
           label="请输入主题与要求"
           variant="outlined"
           value={inputText}
-          onChange={(e) => setInputText(e.target.value)}
+          onChange={(e: any) => setInputText(e.target.value)}
           sx={{ mt: 2, mb: 2 }}
         />
       )}
-      {selectedOption === "importData" && (
+      {inputType === "importData" && (
         <>
           {/* 四个按钮 */}
           <Box sx={{ display: "flex", gap: 2, mb: 2, mt: 4 }}>
@@ -164,7 +171,7 @@ const StepOneInputData = ({ setActiveStep, setInputData }: any) => {
               multiline
               rows={4}
               value={inputText}
-              onChange={(e) => setInputText(e.target.value)}
+              onChange={(e: any) => setInputText(e.target.value)}
               sx={{ mb: 2, mt: 2 }}
             />
           )}
@@ -175,7 +182,7 @@ const StepOneInputData = ({ setActiveStep, setInputData }: any) => {
               label="请输入网页地址"
               variant="outlined"
               value={inputText}
-              onChange={(e) => setInputText(e.target.value)}
+              onChange={(e: any) => setInputText(e.target.value)}
               sx={{ mb: 2, mt: 2 }}
             />
           )}
@@ -211,7 +218,7 @@ const StepOneInputData = ({ setActiveStep, setInputData }: any) => {
             label="请输入更多要求"
             variant="outlined"
             value={moreOptions.moreRequirement}
-            onChange={(e) =>
+            onChange={(e: any) =>
               setMoreOptions({ ...moreOptions, moreRequirement: e.target.value })
             }
             sx={{ mb: 2 }}
@@ -222,7 +229,7 @@ const StepOneInputData = ({ setActiveStep, setInputData }: any) => {
             <Select
               size={'small'}
               value={moreOptions.outlineLength}
-              onChange={(e) =>
+              onChange={(e: any) =>
                 setMoreOptions({ ...moreOptions, outlineLength: e.target.value })
               }
               displayEmpty
@@ -242,7 +249,7 @@ const StepOneInputData = ({ setActiveStep, setInputData }: any) => {
             <Select
               size={"small"}
               value={moreOptions.language}
-              onChange={(e) =>
+              onChange={(e: any) =>
                 setMoreOptions({ ...moreOptions, language: e.target.value })
               }
               displayEmpty
