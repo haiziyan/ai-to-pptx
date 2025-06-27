@@ -89,7 +89,7 @@ const StepperLinearWithValidation = () => {
             overflowY: 'auto', // 内容超出时显示滚动条
           }}
         >
-          {(activeStep === 0 || activeStep === 1)&& (
+          {(activeStep === 0 || activeStep === 1 || activeStep === 2)&& (
             <StepOneInputData setActiveStep={setActiveStep} setInputData={setInputData} />
           )}
           {/*{(activeStep === 1 || activeStep === 2) && (
@@ -100,7 +100,7 @@ const StepperLinearWithValidation = () => {
               setInputData={setInputData}
             />
           )}*/}
-          {activeStep === 2 && (
+          {activeStep === 3 && (
             <StepFourSelectTemplate
               activeStep={activeStep}
               setActiveStep={setActiveStep}
@@ -108,7 +108,7 @@ const StepperLinearWithValidation = () => {
               setInputData={setInputData}
             />
           )}
-          {activeStep === 3 && (
+          {activeStep === 4 && (
             <StepFiveGeneratePpt
               activeStep={activeStep}
               setActiveStep={setActiveStep}
