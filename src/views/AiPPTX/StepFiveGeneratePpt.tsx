@@ -397,7 +397,7 @@ const StepFiveGeneratePpt = ({setActiveStep, inputData, setInputData, token}: an
                       startIcon={<SwapHoriz />}
                       sx={{mx: 1}}
                     >
-                      更换模板
+                      演讲设置
                     </Button>
                     <Button
                       size={'small'}
@@ -407,7 +407,7 @@ const StepFiveGeneratePpt = ({setActiveStep, inputData, setInputData, token}: an
                       startIcon={<Download />}
                       sx={{mx: 1}}
                       >
-                      下载
+                      开始演讲
                     </Button>
                     <Button
                       size={'small'}
@@ -417,7 +417,7 @@ const StepFiveGeneratePpt = ({setActiveStep, inputData, setInputData, token}: an
                       startIcon={<ChangeCircle />}
                       sx={{mx: 1}}
                       >
-                      重新生成
+                      导出PPT视频
                     </Button>
                   </Box>
                 </Grid>
