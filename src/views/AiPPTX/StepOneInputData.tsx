@@ -64,23 +64,6 @@ const StepOneInputData = ({ setActiveStep, setInputData }: any) => {
   return (
     <Box sx={{  }}>
       {/* 第一行：两个按钮 */}
-      <Box sx={{ display: "flex", gap: 2, mb: 2 }}>
-        <Button
-          variant={selectedOption === "inputTopic" ? "contained" : "outlined"}
-          color={selectedOption === "inputTopic" ? "primary" : "inherit"}
-          onClick={() => handleOptionChange("inputTopic")}
-          startIcon={<Description />} // 输入主题与要求图标
-        >
-          输入主题与要求
-        </Button>
-        <Button
-          variant={selectedOption === "importData" ? "contained" : "outlined"}
-          color={selectedOption === "importData" ? "primary" : "inherit"}
-          onClick={() => handleOptionChange("importData")}
-          startIcon={<CloudUpload />} // 导入外部资料图标
-        >
-          导入外部资料（网络/文件等）
-        </Button>
         <Button
           variant={selectedOption === "InputData" ? "contained" : "outlined"}
           color={selectedOption === "InputData" ? "primary" : "inherit"}
@@ -98,7 +81,7 @@ const StepOneInputData = ({ setActiveStep, setInputData }: any) => {
           编辑大纲
         </Button>
       </Box>
-
+  
       {/* 第二行：根据选项显示不同内容 */}
       {selectedOption === "InputData" && (
         <>
