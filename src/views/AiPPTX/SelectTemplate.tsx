@@ -35,20 +35,20 @@ export default function SelectTemplate({token, nextStep}: { token: string, nextS
     return (
       <>
         <div className="template_content">
-            <div>---- 选择模板 ----</div>
+            <div>---- 设置风格 ----</div>
             <div className="but_div">
                 <button onClick={() => {
                     nextStep(templateId)
                 }}>下一步: 生成PPT</button>
             </div>
-            <div className="template_div">
+            {/*<div className="template_div">
                 {templates.map((template: any) => (
                     <div className={template.id == templateId ? 'template template_select' : 'template'} key={template.id} onClick={() => selectTemplate(template)}>
                         <img src={BackendApi + "json/" + template.subject + ".png"} />
                     </div>
                 ))}
                 { templates.length == 0 && <div>模板加载中...</div> }
-            </div>
+            </div>*/}
         </div>
       </>
     )
