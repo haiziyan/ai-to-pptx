@@ -30,7 +30,7 @@ const StepOneInputData = ({ setActiveStep, setInputData }: any) => {
   const [selectedOption, setSelectedOption] = useState("InputData"); // 默认选中 "Content Input"
   const [inputType, setInputType] = useState("inputTopic"); // 默认选中 "Input Topic与要求"
   const [importOption, setImportOption] = useState("inputText"); // 默认选中 "Input Text"
-  const [inputText, setInputText] = useState("2025年就业市场预测"); // 输入框内容
+  const [inputText, setInputText] = useState("Please Input Topic"); // 输入框内容
   const [showMoreOptions, setShowMoreOptions] = useState(false); // 是否显示More Generation Requirements
   const [moreOptions, setMoreOptions] = useState({ moreRequirement: "", language: "zh-CN", outlineLength: "regular" }); // More Generation Requirements的内容
 
@@ -250,8 +250,8 @@ const StepOneInputData = ({ setActiveStep, setInputData }: any) => {
               <MenuItem value="" disabled>
                 Please select
               </MenuItem>
-              <MenuItem value="zh-CN">Chinese</MenuItem>
               <MenuItem value="en">English</MenuItem>
+              <MenuItem value="zh-CN">Chinese</MenuItem>
             </Select>
           </Box>
         </Box>

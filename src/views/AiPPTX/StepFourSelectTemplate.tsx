@@ -66,7 +66,7 @@ const StepFourSelectTemplate = ({activeStep, setActiveStep, inputData, setInputD
           </Grid>
         </Grid>
 
-        <Grid container sx={{ mb: 2, px: 4 }}>
+        {/* <Grid container sx={{ mb: 2, px: 4 }}>
           {templates.map((template: any) => (
             <Grid
               item
@@ -90,7 +90,7 @@ const StepFourSelectTemplate = ({activeStep, setActiveStep, inputData, setInputD
                   style={{ width: '100%', height: 'auto' }} // 缩小图片宽度为 80%
                 />
               </Grid>
-            </Grid>
+            </Grid> 
           ))}
           {templates.length === 0 && (
             <Grid container justifyContent="center" alignItems="center">
@@ -101,7 +101,7 @@ const StepFourSelectTemplate = ({activeStep, setActiveStep, inputData, setInputD
               </Grid>
             </Grid>
           )}
-        </Grid>
+        </Grid>*/}
       </>
     )
 }
