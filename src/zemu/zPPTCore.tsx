@@ -808,7 +808,7 @@ const outlineTree2 =
         for (let i = 0;i<countLent;i++) 
         {
             const tStr = conStr[i];
-            slide.addText(tStr, { x: cradBSpace, y: ypos+textSize*i, w: cardW, h: textSize, align: "left", fontSize: textSize, fontFace: "Arial" });
+            slide.addText(tStr, { x: cradBSpace, y: cradBSpace+textSize*i, w: cardW, h: textSize, align: "left", fontSize: textSize, fontFace: "Arial" });
         }
     }
 }   
