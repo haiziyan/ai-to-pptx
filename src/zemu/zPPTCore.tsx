@@ -564,7 +564,7 @@ const outlineTree2 =
     
 
         //遍历outlineTree中level为1的元素，并获取其children中level为2的元素
-   const levelOneElements = outlineTree.name;
+   const levelOneElements = outlineTree2.name;
    console.log("levelOneElements", levelOneElements);
    //主题
    const zlayout = new ZLayoutStyleClass();
@@ -575,13 +575,13 @@ const outlineTree2 =
    //目录
    const mlslide = this.pptx.addSlide();
    const mlStrv:string[] = [];
-   outlineTree.children.forEach((item: any) => {
+   outlineTree2.children.forEach((item: any) => {
     mlStrv.push(item.name);
    });
-   this.layoutCardStyle3(mlslide,mlStrv,context);
+   this.layoutCardStyle4(mlslide,mlStrv,context);
    //目录大业及内容业
            //遍历outlineTree2.children
-           outlineTree.children.forEach((item: any) => {
+           outlineTree2.children.forEach((item: any) => {
             console.log("item", item);
             const slide = this.pptx.addSlide();
             const muStrVec:string[] = [];
@@ -786,11 +786,29 @@ const outlineTree2 =
             const tStr = conStr[i];
             slide.addText(tStr, { x: cradBSpace+textBoxLength*i, y: ypos, w: textBoxLength, h: 1.4, align: "left", fontSize: textSize, fontFace: "Arial" });
         }
+    }
 
-        //添加图片
-        //slide.addImage({ path: "https://pic.baike.soso.com/ugc/baikepic2/0/20210608234717-1081107189_png_674_446_600924.jpg/800", x: 0, y: 0, w: 10, h: 5.625 });
+    public layoutCardStyle4(slide: any,conStr:string[],context:zPPTContext) 
+    {//竖向排布 从上到下
+        const cardW = context.styleSetting.cardW;
+        const cardH = context.styleSetting.cardH;
+        const cradBSpace = context.styleSetting.cardBorderSpacing;
 
         
-        
+        slide.background = { color: context.styleSetting.cardBackground };
+
+        slide.color = context.styleSetting.bodyColor;
+
+        //文字数组 竖向排布
+        const countLent=conStr.length;
+        const textSize = 50.0/countLent;//字体大小
+
+
+        const ypos = (cardH-1.4)*0.5; // 计算y坐标，5.625是幻灯片的高度，1.4是文本框的高度
+        for (let i = 0;i<countLent;i++) 
+        {
+            const tStr = conStr[i];
+            slide.addText(tStr, { x: cradBSpace, y: ypos+textSize*i, w: cardW, h: textSize, align: "left", fontSize: textSize, fontFace: "Arial" });
+        }
     }
 }   
