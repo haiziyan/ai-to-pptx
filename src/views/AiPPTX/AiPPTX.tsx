@@ -28,8 +28,8 @@ const steps = [
     subtitle: 'PPTAgent'
   },
   {
-    title: '演讲Agent',
-    subtitle: '演讲Agent'
+    title: 'Presentation Agent',
+    subtitle: 'Presentation Agent'
   }
 ]
 
