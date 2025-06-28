@@ -30,7 +30,7 @@ const StepFiveGeneratePpt = ({setActiveStep, inputData, setInputData, token}: an
 
   const [generatePptxStatus, setGeneratePptxStatus] = useState(false)
   const [descTime, setDescTime] = useState(0)
-  const [descMsg, setDescMsg] = useState('正在生成中，请稍后...')
+  const [descMsg, setDescMsg] = useState('Generating, please wait...')
   const svg = useRef(null)
   const [pages, setPages] = useState([] as any)
   const [currentIdx, setCurrentIdx] = useState(0)
@@ -75,7 +75,7 @@ const StepFiveGeneratePpt = ({setActiveStep, inputData, setInputData, token}: an
       source.onmessage = function (data: any) {
           const json = JSON.parse(data.data)
           if (json.pptId) {
-              setDescMsg(`正在生成中，进度 ${json.current}/${json.total}，请稍后...`)
+              setDescMsg(`Generating, progress ${json.current}/${json.total}, please wait...`)
               asyncGenPptxInfo(json.pptId, templateId)
           }
       }
@@ -83,7 +83,7 @@ const StepFiveGeneratePpt = ({setActiveStep, inputData, setInputData, token}: an
           if (data.data.startsWith('{') && data.data.endsWith('}')) {
               const json = JSON.parse(data.data)
               if (json.code != 0) {
-                  alert('生成PPT异常：' + json.message)
+                  alert('Generate PPT error: ' + json.message)
 
                   return
               }
@@ -94,15 +94,15 @@ const StepFiveGeneratePpt = ({setActiveStep, inputData, setInputData, token}: an
           }
           clearInterval(timer)
           setGeneratePptxStatus(false)
-          setDescMsg('正在生成中，请稍后...')
+          setDescMsg('Generating, please wait...')
           setTimeout(() => {
               drawPptxList(0, false)
           }, 200)
       }
       source.onerror = function (err: any) {
           clearInterval(timer)
-          console.error('生成内容异常', err)
-          alert('生成内容异常')
+          console.error('Generate content error', err)
+          alert('Generate content error')
       }
       source.stream()
   }
@@ -259,7 +259,7 @@ const StepFiveGeneratePpt = ({setActiveStep, inputData, setInputData, token}: an
                       _ppt2Canvas.drawPptx(pptxObj, i)
                   }
               } catch(e) {
-                  console.log('渲染第' + (i + 1) + '页封面异常', e)
+                  console.log('Generate page ' + (i + 1) + ' cover error', e)
               }
           }
       }
@@ -367,7 +367,7 @@ const StepFiveGeneratePpt = ({setActiveStep, inputData, setInputData, token}: an
                                     lineHeight: 81,
                                     color: '#666',
                                     cursor: 'default',
-                                  }}>生成中...</div>
+                                  }}>Generating...</div>
                           </div>
                       )}
                   </div>
@@ -383,7 +383,7 @@ const StepFiveGeneratePpt = ({setActiveStep, inputData, setInputData, token}: an
                           {descMsg}
                         </Typography>
                         <Typography component="span" sx={{ marginLeft: '5px' }}>
-                          {descTime}秒
+                          {descTime}seconds
                         </Typography>
                       </Box>
                     )}
@@ -397,7 +397,7 @@ const StepFiveGeneratePpt = ({setActiveStep, inputData, setInputData, token}: an
                       startIcon={<SwapHoriz />}
                       sx={{mx: 1}}
                     >
-                      演讲设置
+                      Presentation Settings
                     </Button>
                     <Button
                       size={'small'}
@@ -407,7 +407,7 @@ const StepFiveGeneratePpt = ({setActiveStep, inputData, setInputData, token}: an
                       startIcon={<Download />}
                       sx={{mx: 1}}
                       >
-                      开始演讲
+                      Start Presentation
                     </Button>
                     <Button
                       size={'small'}
@@ -417,7 +417,7 @@ const StepFiveGeneratePpt = ({setActiveStep, inputData, setInputData, token}: an
                       startIcon={<ChangeCircle />}
                       sx={{mx: 1}}
                       >
-                      导出PPT视频
+                      Export PPT Video
                     </Button>
                   </Box>
                 </Grid>

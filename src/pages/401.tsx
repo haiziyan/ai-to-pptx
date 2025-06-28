@@ -27,12 +27,12 @@ const Error401 = () => {
         <BoxWrapper>
           <Typography variant='h1'>401</Typography>
           <Typography variant='h5' sx={{ mb: 1, fontSize: '1.5rem !important' }}>
-            您还没有登录系统 🔐
+            You are not logged in to the system 🔐
           </Typography>
-          <Typography variant='body2'>您没有权限查看当前页面,请返回到首页,登录以后再重新打开页面.</Typography>
+          <Typography variant='body2'>You do not have permission to view the current page. Please return to the homepage and log in before reopening the page.</Typography>
         </BoxWrapper>
         <Button href='/' component={Link} variant='contained' sx={{ px: 5.5 }}>
-          回到首页
+          Back to Homepage
         </Button>
       </Box>
     </Box>

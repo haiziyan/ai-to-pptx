@@ -26,7 +26,7 @@ const StepFourSelectTemplate = ({activeStep, setActiveStep, inputData, setInputD
             body: JSON.stringify({ page: 1, size: 28, filters: { type: 1 } })
         })).json()
         if (resp.code != 0) {
-            alert('获取模板异常：' + resp.message)
+            alert('Get template error: ' + resp.message)
 
             return
         }
@@ -53,7 +53,7 @@ const StepFourSelectTemplate = ({activeStep, setActiveStep, inputData, setInputD
               startIcon={<ArrowBack />}
               sx={{mx: 1}}
             >
-              上一步
+              Previous
             </Button>
             <Button
               variant="contained"
@@ -61,7 +61,7 @@ const StepFourSelectTemplate = ({activeStep, setActiveStep, inputData, setInputD
               startIcon={<PlayCircleFilled />}
               sx={{mx: 1}}
             >
-              下一步：生成PPTX
+              Next: Generate PPTX
             </Button>
           </Grid>
         </Grid>

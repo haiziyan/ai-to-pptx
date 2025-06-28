@@ -11,15 +11,15 @@ import MenuItem from '@mui/material/MenuItem'
 import TextField from '@mui/material/TextField'
 import Typography from '@mui/material/Typography'
 import {
-  Description, // 输入主题与要求
+  Description, // Input Topic与要求
   CloudUpload, // 导入外部资料
-  TextFields, // 输入文本
-  UploadFile, // 上传文件
-  Link, // 输入网页地址
-  List, // 导入大纲
+  TextFields, // Input Text
+  UploadFile, // Upload File
+  Link, // Input Web Address
+  List, // Import Outline
   KeyboardArrowDown,
   KeyboardArrowRight,
-  PlayCircleFilled, // 立即生成
+  PlayCircleFilled, // Generate Now
 } from "@mui/icons-material";
 
 
@@ -27,12 +27,12 @@ const StepOneInputData = ({ setActiveStep, setInputData }: any) => {
   // ** States
 
   // 状态管理
-  const [selectedOption, setSelectedOption] = useState("InputData"); // 默认选中 "内容输入"
-  const [inputType, setInputType] = useState("inputTopic"); // 默认选中 "输入主题与要求"
-  const [importOption, setImportOption] = useState("inputText"); // 默认选中 "输入文本"
+  const [selectedOption, setSelectedOption] = useState("InputData"); // 默认选中 "Content Input"
+  const [inputType, setInputType] = useState("inputTopic"); // 默认选中 "Input Topic与要求"
+  const [importOption, setImportOption] = useState("inputText"); // 默认选中 "Input Text"
   const [inputText, setInputText] = useState("2025年就业市场预测"); // 输入框内容
-  const [showMoreOptions, setShowMoreOptions] = useState(false); // 是否显示更多生成要求
-  const [moreOptions, setMoreOptions] = useState({ moreRequirement: "", language: "zh-CN", outlineLength: "regular" }); // 更多生成要求的内容
+  const [showMoreOptions, setShowMoreOptions] = useState(false); // 是否显示More Generation Requirements
+  const [moreOptions, setMoreOptions] = useState({ moreRequirement: "", language: "zh-CN", outlineLength: "regular" }); // More Generation Requirements的内容
 
   // 处理选项切换
   const handleOptionChange = (option: any) => {
@@ -49,12 +49,12 @@ const StepOneInputData = ({ setActiveStep, setInputData }: any) => {
     setImportOption(option);
   };
 
-  // 处理更多生成要求的显示/隐藏
+  // 处理More Generation Requirements的显示/隐藏
   const toggleMoreOptions = () => {
     setShowMoreOptions(!showMoreOptions);
   };
 
-  // 处理立即生成按钮点击
+  // 处理Generate Now按钮点击
   const handleGenerateOutline = () => {
     console.log("生成 PPTX 的参数：", {
       selectedOption,
@@ -78,7 +78,7 @@ const StepOneInputData = ({ setActiveStep, setInputData }: any) => {
           onClick={() => handleOptionChange("InputData")}
           startIcon={<CloudUpload />} // 
         >
-          内容输入
+          Content Input
         </Button>
       </Box>
   
@@ -91,9 +91,9 @@ const StepOneInputData = ({ setActiveStep, setInputData }: any) => {
           variant={inputType === "inputTopic" ? "contained" : "outlined"}
           color={inputType === "inputTopic" ? "primary" : "inherit"}
           onClick={() => handleInputTypeChange("inputTopic")}
-          startIcon={<Description />} // 输入主题与要求图标
+          startIcon={<Description />} // Input Topic与要求图标
         >
-          输入主题与要求
+          Input Topic
         </Button>
         <Button
           variant={inputType === "importData" ? "contained" : "outlined"}
@@ -101,15 +101,15 @@ const StepOneInputData = ({ setActiveStep, setInputData }: any) => {
           onClick={() => handleInputTypeChange("importData")}
           startIcon={<CloudUpload />} // 导入外部资料图标
         >
-          导入外部资料（网络/文件等）
+          Import Data
         </Button>
       </Box>
       
-      {/* 输入主题与要求 */}
+      {/* Input Topic与要求 */}
       {inputType === "inputTopic" && (
         <TextField
           fullWidth
-          label="请输入主题与要求"
+          label="Please Input Topic"
           variant="outlined"
           value={inputText}
           onChange={(e: any) => setInputText(e.target.value)}
@@ -126,7 +126,7 @@ const StepOneInputData = ({ setActiveStep, setInputData }: any) => {
               onClick={() => handleImportOptionChange("inputText")}
               startIcon={<TextFields />}
             >
-              输入文本
+              Input Text
             </Button>
             <Button
               variant={importOption === "uploadFile" ? "contained" : "outlined"}
@@ -134,7 +134,7 @@ const StepOneInputData = ({ setActiveStep, setInputData }: any) => {
               onClick={() => handleImportOptionChange("uploadFile")}
               startIcon={<UploadFile />}
             >
-              上传文件
+              Upload File
             </Button>
             <Button
               variant={importOption === "inputUrl" ? "contained" : "outlined"}
@@ -142,7 +142,7 @@ const StepOneInputData = ({ setActiveStep, setInputData }: any) => {
               onClick={() => handleImportOptionChange("inputUrl")}
               startIcon={<Link />}
             >
-              输入网页地址
+              Input Web Address
             </Button>
             <Button
               variant={importOption === "importOutline" ? "contained" : "outlined"}
@@ -150,7 +150,7 @@ const StepOneInputData = ({ setActiveStep, setInputData }: any) => {
               onClick={() => handleImportOptionChange("importOutline")}
               startIcon={<List />}
             >
-              导入大纲
+              Import Outline
             </Button>
           </Box>
 
@@ -158,7 +158,7 @@ const StepOneInputData = ({ setActiveStep, setInputData }: any) => {
           {importOption === "inputText" && (
             <TextField
               fullWidth
-              label="请输入文本"
+              label="Please Input Text"
               variant="outlined"
               multiline
               rows={4}
@@ -171,7 +171,7 @@ const StepOneInputData = ({ setActiveStep, setInputData }: any) => {
           {importOption === "inputUrl" && (
             <TextField
               fullWidth
-              label="请输入网页地址"
+              label="Please Input Web Address"
               variant="outlined"
               value={inputText}
               onChange={(e: any) => setInputText(e.target.value)}
@@ -185,7 +185,7 @@ const StepOneInputData = ({ setActiveStep, setInputData }: any) => {
       )}
 
 
-      {/* 更多生成要求 */}
+      {/* More Generation Requirements */}
       <Button
         variant="text"
         color="primary"
@@ -199,7 +199,7 @@ const StepOneInputData = ({ setActiveStep, setInputData }: any) => {
           )
         }
       >
-        更多生成要求
+        More Generation Requirements
       </Button>
 
       {showMoreOptions && (
@@ -207,7 +207,7 @@ const StepOneInputData = ({ setActiveStep, setInputData }: any) => {
           <TextField
             fullWidth
             size={"small"}
-            label="请输入更多要求"
+            label="Please enter more requirements"
             variant="outlined"
             value={moreOptions.moreRequirement}
             onChange={(e: any) =>
@@ -217,7 +217,7 @@ const StepOneInputData = ({ setActiveStep, setInputData }: any) => {
           />
           {/* 大纲篇幅选择 */}
           <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
-            <Typography variant="body1">大纲篇幅:</Typography>
+            <Typography variant="body1">Outline Length:</Typography>
             <Select
               size={'small'}
               value={moreOptions.outlineLength}
@@ -228,16 +228,16 @@ const StepOneInputData = ({ setActiveStep, setInputData }: any) => {
               sx={{my: 1}}
             >
               <MenuItem value="" disabled>
-                请选择
+                Please select
               </MenuItem>
-              <MenuItem value="short">较短 10-15 页</MenuItem>
-              <MenuItem value="regular">常规 20-30 页</MenuItem>
-              <MenuItem value="long">更长 25-35 页</MenuItem>
+              <MenuItem value="short">Short 10-15 pages</MenuItem>
+              <MenuItem value="regular">Regular 20-30 pages</MenuItem>
+              <MenuItem value="long">Longer 25-35 pages</MenuItem>
             </Select>
           </Box>
           {/* 下拉框和文本提示 */}
           <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
-            <Typography variant="body1">选择语言:</Typography>
+            <Typography variant="body1">Select Language:</Typography>
             <Select
               size={"small"}
               value={moreOptions.language}
@@ -248,10 +248,10 @@ const StepOneInputData = ({ setActiveStep, setInputData }: any) => {
               sx={{my: 1}}
             >
               <MenuItem value="" disabled>
-                请选择
+                Please select
               </MenuItem>
-              <MenuItem value="zh-CN">中文</MenuItem>
-              <MenuItem value="en">英文</MenuItem>
+              <MenuItem value="zh-CN">Chinese</MenuItem>
+              <MenuItem value="en">English</MenuItem>
             </Select>
           </Box>
         </Box>
@@ -267,7 +267,7 @@ const StepOneInputData = ({ setActiveStep, setInputData }: any) => {
             //onClick={clickButton1}
             startIcon={<PlayCircleFilled />}
           >
-            立即生成
+            Generate Now
           </Button>
         </Grid>
       </Grid>

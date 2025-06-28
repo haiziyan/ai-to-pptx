@@ -97,7 +97,7 @@ const StepTwoThreeGenerateOutline = ({activeStep, setActiveStep, inputData, setI
         //return
 
         setActiveStep(1)
-        setInputData((prevState: any) => ({...prevState, outlineContent: '', outlineHtml: '<h3>正在生成中，请稍后....</h3>'}))
+        setInputData((prevState: any) => ({...prevState, outlineContent: '', outlineHtml: '<h3>Generating, please wait....</h3>'}))
         const submitData = {subject: inputData.inputText}
         const url = BackendApi + 'generateOutline.php'
         const source = new SSE(url, {
@@ -139,7 +139,7 @@ const StepTwoThreeGenerateOutline = ({activeStep, setActiveStep, inputData, setI
             if (data.data.startsWith('{') && data.data.endsWith('}')) {
                 const json = JSON.parse(data.data)
                 if (json.code != 0) {
-                    alert('生成大纲异常：' + json.message)
+                    alert('Generate outline error: ' + json.message)
                     setActiveStep(0)
 
                     return
@@ -148,8 +148,8 @@ const StepTwoThreeGenerateOutline = ({activeStep, setActiveStep, inputData, setI
             setActiveStep(2)
         }
         source.onerror = function (err: any) {
-            console.error('生成大纲异常', err)
-            alert('生成大纲异常')
+            console.error('Generate outline error', err)
+            alert('Generate outline error')
             setActiveStep(0)
         }
         source.stream()
@@ -199,14 +199,14 @@ const StepTwoThreeGenerateOutline = ({activeStep, setActiveStep, inputData, setI
                   startIcon={<ArrowBack />}
                   sx={{mx: 1}}
                 >
-                  上一步
+                  Previous
                 </Button>
                 <Button
                   variant={"contained"}
                   onClick={() => setActiveStep((prevActiveStep: number) => prevActiveStep + 1) }
                   startIcon={<PlayCircleFilled />}
                   >
-                  下一步：生成PPT
+                  Next: Generate PPT
                 </Button>
               </Grid>
             </Grid>

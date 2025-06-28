@@ -16,7 +16,7 @@ export default function SelectTemplate({token, nextStep}: { token: string, nextS
             body: JSON.stringify({ page: 1, size: 28, filters: { type: 1 } })
         })).json()
         if (resp.code != 0) {
-            alert('获取模板异常：' + resp.message)
+            alert('Get template error: ' + resp.message)
 
             return
         }
@@ -35,11 +35,11 @@ export default function SelectTemplate({token, nextStep}: { token: string, nextS
     return (
       <>
         <div className="template_content">
-            <div>---- 设置风格 ----</div>
+            <div>---- Set Style ----</div>
             <div className="but_div">
                 <button onClick={() => {
                     nextStep(templateId)
-                }}>下一步: 生成PPT</button>
+                }}>Next: Generate PPT</button>
             </div>
             {/*<div className="template_div">
                 {templates.map((template: any) => (
@@ -47,7 +47,7 @@ export default function SelectTemplate({token, nextStep}: { token: string, nextS
                         <img src={BackendApi + "json/" + template.subject + ".png"} />
                     </div>
                 ))}
-                { templates.length == 0 && <div>模板加载中...</div> }
+                { templates.length == 0 && <div>Templates loading...</div> }
             </div>*/}
         </div>
       </>

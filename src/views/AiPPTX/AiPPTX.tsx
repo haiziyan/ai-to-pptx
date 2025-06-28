@@ -20,8 +20,8 @@ import StepFiveGeneratePpt from './StepFiveGeneratePpt'
 
 const steps = [
     {
-    title: '大纲Agent',
-    subtitle: '大纲Agent'
+    title: 'Outline Agent',
+    subtitle: 'Outline Agent'
   },
   {
     title: 'PPTAgent',
