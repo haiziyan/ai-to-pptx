@@ -40,14 +40,14 @@ function OutlineEdit({outlineTree, update}: { outlineTree: any, update: (outline
           // 在上方新增同级
           children.splice(idx, 0, {
               level: current.level,
-              name: '请输入文字',
+              name: 'Please Input Text',
               children: []
           })
       } else if (type == 2) {
           // 在下方新增下属
           current.children.splice(0, 0, {
               level: current.level + 1,
-              name: '请输入文字',
+              name: 'Please Input Text',
               children: []
           })
       } else if (type == 3) {
@@ -73,9 +73,9 @@ function OutlineEdit({outlineTree, update}: { outlineTree: any, update: (outline
                               }} />
                           </div>
                           <div className="operate_div">
-                              <span title="在上方新增同级" onClick={() => operate(outlineTree.children, chapterIdx, 1)}>=+</span>
-                              <span title="在下方新增下属" onClick={() => operate(outlineTree.children, chapterIdx, 2)}>+</span>
-                              <span title="删除" onClick={() => operate(outlineTree.children, chapterIdx, 3)}>x</span>
+                              <span title="Add a new chapter above" onClick={() => operate(outlineTree.children, chapterIdx, 1)}>=+</span>
+                              <span title="Add a new chapter below" onClick={() => operate(outlineTree.children, chapterIdx, 2)}>+</span>
+                              <span title="Delete" onClick={() => operate(outlineTree.children, chapterIdx, 3)}>x</span>
                           </div>
                       </div>
                       {chapter.children.map((page: any, pageIdx: number) => {
@@ -90,9 +90,9 @@ function OutlineEdit({outlineTree, update}: { outlineTree: any, update: (outline
                                           }} />
                                       </div>
                                       <div className="operate_div">
-                                          <span title="在上方新增同级" onClick={() => operate(chapter.children, pageIdx, 1)}>=+</span>
-                                          <span title="在下方新增下属" onClick={() => operate(chapter.children, pageIdx, 2)}>+</span>
-                                          <span title="删除" onClick={() => operate(chapter.children, pageIdx, 3)}>x</span>
+                                          <span title="Add a new page above" onClick={() => operate(chapter.children, pageIdx, 1)}>=+</span>
+                                          <span title="Add a new page below" onClick={() => operate(chapter.children, pageIdx, 2)}>+</span>
+                                          <span title="Delete" onClick={() => operate(chapter.children, pageIdx, 3)}>x</span>
                                       </div>
                                   </div>
                                   {page.children.map((title: any, titleIdx: number) => {
@@ -107,8 +107,8 @@ function OutlineEdit({outlineTree, update}: { outlineTree: any, update: (outline
                                                       }} />
                                                   </div>
                                                   <div className="operate_div">
-                                                      <span title="在上方新增同级" onClick={() => operate(page.children, titleIdx, 1)}>=+</span>
-                                                      <span title="删除" onClick={() => operate(page.children, titleIdx, 3)}>x</span>
+                                                      <span title="Add a new title above" onClick={() => operate(page.children, titleIdx, 1)}>=+</span>
+                                                      <span title="Delete" onClick={() => operate(page.children, titleIdx, 3)}>x</span>
                                                   </div>
                                               </div>
                                           </div>

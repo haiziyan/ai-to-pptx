@@ -96,7 +96,7 @@ const StepFourSelectTemplate = ({activeStep, setActiveStep, inputData, setInputD
             <Grid container justifyContent="center" alignItems="center">
               <Grid item xs={12}>
                 <Box display="flex" justifyContent="center" alignItems="center" sx={{mt: 2}}>
-                  <div>Choose Style\n This page is developing...</div>
+                  <div>[Choose Style] This page is developing...</div>
                 </Box>
               </Grid>
             </Grid>
