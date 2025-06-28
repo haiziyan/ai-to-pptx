@@ -66,8 +66,8 @@ const StepFourSelectTemplate = ({activeStep, setActiveStep, inputData, setInputD
           </Grid>
         </Grid>
 
-        {/* <Grid container sx={{ mb: 2, px: 4 }}>
-          {templates.map((template: any) => (
+         <Grid container sx={{ mb: 2, px: 4 }}>
+          {/* {templates.map((template: any) => (
             <Grid
               item
               xs={12}
@@ -91,17 +91,17 @@ const StepFourSelectTemplate = ({activeStep, setActiveStep, inputData, setInputD
                 />
               </Grid>
             </Grid> 
-          ))}
-          {templates.length === 0 && (
+          ))} */}
+          { (
             <Grid container justifyContent="center" alignItems="center">
               <Grid item xs={12}>
                 <Box display="flex" justifyContent="center" alignItems="center" sx={{mt: 2}}>
-                  <div>模板加载中...</div>
+                  <div>Choose Style\n This page is developing...</div>
                 </Box>
               </Grid>
             </Grid>
           )}
-        </Grid>*/}
+        </Grid>*
       </>
     )
 }
