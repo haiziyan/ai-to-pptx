@@ -566,20 +566,20 @@ const outlineTree2 =
         //遍历outlineTree中level为1的元素，并获取其children中level为2的元素
    const levelOneElements = outlineTree2.name;
    console.log("levelOneElements", levelOneElements);
-   //主题
+   //主题 level1
    const zlayout = new ZLayoutStyleClass();
    const zlasty = ZLayoutStyle.ZL1;
    const ThemeSlide = this.pptx.addSlide();
    const themeStrv:string[] = [levelOneElements];
    this.layoutCardStyle3(ThemeSlide,themeStrv,context);
-   //目录
+   //目录 level2
    const mlslide = this.pptx.addSlide();
    const mlStrv:string[] = [];
    outlineTree2.children.forEach((item: any) => {
     mlStrv.push(item.name);
    });
    this.layoutCardStyle4(mlslide,mlStrv,context);
-   //目录大业及内容业
+   //目录大业及内容业 level3 及以下level4
            //遍历outlineTree2.children
            outlineTree2.children.forEach((item: any) => {
             console.log("item", item);
@@ -589,15 +589,20 @@ const outlineTree2 =
             //目录大页
             this.layoutCardStyle3(slide,muStrVec,context);
 
+            const conStrMap: Map<string,string[]> = new Map();
             const conStrVec:string[] = [];
             //遍历item.children
             item.children.forEach((child: any) => {
-                conStrVec.push(child.name);
-            });
-            console.log("conStrVec", conStrVec);
-            const slide1 = this.pptx.addSlide();
+                const conStrVec:string[] = [];
+                child.children.forEach((child2: any) => {   
+                    conStrVec.push(child2.name);
+                });
+                conStrMap.set(child.name,conStrVec);
+
+                const slide1 = this.pptx.addSlide();
             //内容页
-            this.layoutCardStyle3(slide1,conStrVec,context);
+            this.layoutCardStyle5(slide1,item.name,conStrMap,context);
+            }); 
            });
 
 
@@ -810,5 +815,51 @@ const outlineTree2 =
             const tStr = conStr[i];
             slide.addText(tStr, { x: cradBSpace, y: cradBSpace+textSize*i, w: cardW, h: textSize, align: "left", fontSize: textSize, fontFace: "Arial" });
         }
+
+
     }
-}   
+
+    public layoutCardStyle5(slide: any,tile:string,contentStr:Map<string,string[]>,context:zPPTContext) 
+    {
+        //contentStr 是map，key是title，value是content
+        //文字数组
+        slide.background = { color: context.styleSetting.cardBackground };
+
+        slide.color = context.styleSetting.bodyColor;
+
+        const cardW = context.styleSetting.cardW;
+        const cardH = context.styleSetting.cardH;
+        const cradBSpace = context.styleSetting.cardBorderSpacing;
+        const countLent=contentStr.size;
+        const textSize = 50.0/countLent;//字体大小
+
+        //大标题
+        slide.addText(tile, { x: cradBSpace, y: cradBSpace, w: cardW, h: 1.4, align: "left", fontSize: 50, fontFace: "Arial" });
+        //计算文本框的长度
+        const textBoxLength = (cardW - cradBSpace*2)/countLent;
+
+        const ypos = (cardH-1.4)*0.5; // 计算y坐标，5.625是幻灯片的高度，1.4是文本框的高度
+        for (let i = 0;i<countLent;i++) 
+        {
+            const tStr = contentStr;
+            slide.addText(tStr, { x: cradBSpace+textBoxLength*i, y: ypos, w: textBoxLength, h: 1.4, align: "left", fontSize: textSize, fontFace: "Arial" });
+        }
+        let i = 0;
+        let cStr: string = "";
+        //遍历contentStr
+        for (const [key, value] of contentStr) 
+            {
+            //小标题
+            slide.addText(key, { x: cradBSpace+textBoxLength*i, y: ypos, w: textBoxLength, h: 1.4, align: "left", fontSize: textSize, fontFace: "Arial" });
+            //内容
+            for (let j = 0;j<value.length;j++) {
+                cStr += value[j]+"\n";
+            }
+            if(cStr.length>0)
+            {
+            slide.addText(cStr, { x: cradBSpace+textBoxLength*i, y: ypos, w: textBoxLength, h: 1.4, align: "left", fontSize: textSize, fontFace: "Arial" });
+            }
+            i++;
+          }
+    }
+} 
