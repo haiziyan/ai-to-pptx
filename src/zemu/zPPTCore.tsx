@@ -578,7 +578,7 @@ const outlineTree2 =
    outlineTree2.children.forEach((item: any) => {
     mlStrv.push(item.name);
    });
-   this.layoutCardStyle4(mlslide,mlStrv,context);
+   //this.layoutCardStyle4(mlslide,mlStrv,context);
    //目录大业及内容业 level3 及以下level4
            //遍历outlineTree2.children
            outlineTree2.children.forEach((item: any) => {
@@ -839,7 +839,7 @@ const outlineTree2 =
         //计算文本框的长度
         const textBoxLength = (cardW - cradBSpace*2)/countLent;
 
-        const ypos = (cardH-2); // 计算y坐标，5.625是幻灯片的高度，1.4是文本框的高度
+        const ypos = 2; // 计算y坐标，5.625是幻灯片的高度，1.4是文本框的高度
 
         let i = 0;
         let cStr = "";
