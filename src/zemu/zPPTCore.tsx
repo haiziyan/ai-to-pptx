@@ -845,7 +845,7 @@ const outlineTree2 =
             slide.addText(tStr, { x: cradBSpace+textBoxLength*i, y: ypos, w: textBoxLength, h: 1.4, align: "left", fontSize: textSize, fontFace: "Arial" });
         }
         let i = 0;
-        let cStr: string = "";
+        let cStr = "";
         //遍历contentStr
         for (const [key, value] of contentStr) 
             {
