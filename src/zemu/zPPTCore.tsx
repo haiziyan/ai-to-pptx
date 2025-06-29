@@ -839,7 +839,7 @@ const outlineTree2 =
         //计算文本框的长度
         const textBoxLength = (cardW - cradBSpace*2)/countLent;
 
-        const ypos = 2; // 计算y坐标，5.625是幻灯片的高度，1.4是文本框的高度
+        const ypos = 1.5; // 计算y坐标，5.625是幻灯片的高度，1.4是文本框的高度
 
         let i = 0;
         let cStr = "";
@@ -847,14 +847,14 @@ const outlineTree2 =
         for (const [key, value] of contentStr) 
             {
             //小标题
-            slide.addText(key, { x: cradBSpace+textBoxLength*i, y: ypos, w: textBoxLength, h: 1.4, align: "left", fontSize: 20, fontFace: "Arial" });
+            slide.addText(key, { x: cradBSpace+textBoxLength*i, y: ypos, w: textBoxLength, h: 0.7, align: "left", fontSize: 20, fontFace: "Arial" });
             //内容
             for (let j = 0;j<value.length;j++) {
                 cStr += value[j]+"\n";
             }
             if(cStr.length>0)
             {
-            slide.addText(cStr, { x: cradBSpace+textBoxLength*i, y: ypos, w: textBoxLength, h: 1.4, align: "left", fontSize: 15, fontFace: "Arial" });
+            slide.addText(cStr, { x: cradBSpace+textBoxLength*i, y: ypos+0.7, w: textBoxLength, h: 0.7, align: "left", fontSize: 15, fontFace: "Arial" });
             }
             i++;
           }
