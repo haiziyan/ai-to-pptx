@@ -835,11 +835,11 @@ const outlineTree2 =
         const textSize = 50.0/countLent;//字体大小
 
         //大标题
-        slide.addText(tile, { x: cradBSpace, y: 0.3, w: cardW, h: 1, align: "left", fontSize: 30, fontFace: "Arial" });
+        slide.addText(tile, { x: cradBSpace, y: 0.3, w: cardW, h: 0.7, align: "left", fontSize: 30, fontFace: "Arial" });
         //计算文本框的长度
         const textBoxLength = (cardW - cradBSpace*2)/countLent;
 
-        const ypos = 1.5; // 计算y坐标，5.625是幻灯片的高度，1.4是文本框的高度
+        const ypos = 1; // 计算y坐标，5.625是幻灯片的高度，1.4是文本框的高度
 
         let i = 0;
         let cStr = "";
@@ -847,14 +847,16 @@ const outlineTree2 =
         for (const [key, value] of contentStr) 
             {
             //小标题
-            slide.addText(key, { x: cradBSpace+textBoxLength*i, y: ypos, w: textBoxLength, h: 0.7, align: "left", fontSize: 20, fontFace: "Arial" });
+            slide.addText(key, { x: cradBSpace+textBoxLength*i, y: ypos, w: textBoxLength+1, h: 0.7, align: "left", fontSize: 20, fontFace: "Arial" });
             //内容
+            let textBoxH = 0.3;
             for (let j = 0;j<value.length;j++) {
                 cStr += value[j]+"\n";
+                textBoxH += 0.3;
             }
             if(cStr.length>0)
             {
-            slide.addText(cStr, { x: cradBSpace+textBoxLength*i, y: ypos+0.7, w: textBoxLength, h: 0.7, align: "left", fontSize: 15, fontFace: "Arial" });
+            slide.addText(cStr, { x: cradBSpace+textBoxLength*i, y: ypos+0.7, w: textBoxLength, h: textBoxH, align: "left", fontSize: 15, fontFace: "Arial" });
             }
             i++;
           }
