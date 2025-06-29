@@ -813,7 +813,8 @@ const outlineTree2 =
         for (let i = 0;i<countLent;i++) 
         {
             const tStr = conStr[i];
-            slide.addText(tStr, { x: cradBSpace, y: cradBSpace+textSize*i, w: cardW, h: textSize, align: "left", fontSize: textSize, fontFace: "Arial" });
+            const ypos = cardH - (cradBSpace+textSize*i);
+            slide.addText(tStr, { x: cradBSpace, y: ypos, w: cardW, h: textSize, align: "left", fontSize: textSize, fontFace: "Arial" });
         }
 
 
@@ -834,30 +835,26 @@ const outlineTree2 =
         const textSize = 50.0/countLent;//字体大小
 
         //大标题
-        slide.addText(tile, { x: cradBSpace, y: cradBSpace, w: cardW, h: 1.4, align: "left", fontSize: 50, fontFace: "Arial" });
+        slide.addText(tile, { x: cradBSpace, y: cradBSpace*0.5, w: cardW, h: 1.4, align: "left", fontSize: 30, fontFace: "Arial" });
         //计算文本框的长度
         const textBoxLength = (cardW - cradBSpace*2)/countLent;
 
-        const ypos = (cardH-1.4)*0.5; // 计算y坐标，5.625是幻灯片的高度，1.4是文本框的高度
-        for (let i = 0;i<countLent;i++) 
-        {
-            const tStr = contentStr;
-            slide.addText(tStr, { x: cradBSpace+textBoxLength*i, y: ypos, w: textBoxLength, h: 1.4, align: "left", fontSize: textSize, fontFace: "Arial" });
-        }
+        const ypos = (cardH-2); // 计算y坐标，5.625是幻灯片的高度，1.4是文本框的高度
+
         let i = 0;
         let cStr = "";
         //遍历contentStr
         for (const [key, value] of contentStr) 
             {
             //小标题
-            slide.addText(key, { x: cradBSpace+textBoxLength*i, y: ypos, w: textBoxLength, h: 1.4, align: "left", fontSize: textSize, fontFace: "Arial" });
+            slide.addText(key, { x: cradBSpace+textBoxLength*i, y: ypos, w: textBoxLength, h: 1.4, align: "left", fontSize: 20, fontFace: "Arial" });
             //内容
             for (let j = 0;j<value.length;j++) {
                 cStr += value[j]+"\n";
             }
             if(cStr.length>0)
             {
-            slide.addText(cStr, { x: cradBSpace+textBoxLength*i, y: ypos, w: textBoxLength, h: 1.4, align: "left", fontSize: textSize, fontFace: "Arial" });
+            slide.addText(cStr, { x: cradBSpace+textBoxLength*i, y: ypos, w: textBoxLength, h: 1.4, align: "left", fontSize: 15, fontFace: "Arial" });
             }
             i++;
           }
